@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Add in beginning of head if including math equations -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+                onload="renderMathInElement(document.body, {
+                            delimiters: [
+                                {left: '$$', right: '$$', display: true},
+                                {left: '$', right: '$', display: false},
+                            ],
+                            throwOnError : false
+                        });"></script>
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KEN47XT3N8"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-KEN47XT3N8');
+        </script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Release notes: Bloom 0.1</title>
+        <link rel="stylesheet" href="/bundle.css">
+    </head>
+
+    <body>
+        <nav>
+            
+                <a href="/">Mathscapes</a>
+                <a href="/site-index">Index</a>
+            
+        </nav>
+        <main>
+            <article>
+                <header>
+                    
+                        <h1>Release notes: Bloom 0.1</h1>
+                        
+                        
+                            <p class="meta">2023-04-30 • Design</p>
+                        
+                    
+                </header>
+                
+                <img src="https://cdn.mathscapes.xyz/static/images/2023/bloom-0.1.jpg"/>
+<p>Announcing the release of Bloom 0.1, now available on the Figma. Bloom is a tool that allows users to create and manipulate L-systems, a type of formal grammar used to generate geometric structures. The tool provides an interface for users to input L-system grammars and set parameters such as the initial axiom, number of iterations, and angle of rotation. It then generates a visual representation of the L-system, which can be viewed in 2D space. L-systems are a powerful tool for generating self-similar fractals and organic shapes, and the visualizer tool makes it easy for users to explore and experiment with these structures. The tool is inspired by the work of Aristid Lindenmayer, the Hungarian theoretical biologist and botanist who introduced L-systems in 1968 to describe the behavior of plant cells and model plant development.</p>
+<p><a href="https://www.figma.com/community/plugin/1227286752522246727">Bloom for Figma</a></p>
+<p>0.1.6: 30.04.23</p>
+<ul>
+<li>Added basic examples and preview images</li>
+<li>Dark mode, minor UI updates</li>
+<li>Added checks to validate grammar before drawing</li>
+</ul>
+<p>We hope you enjoy Bloom. Please feel free to <a href="https://github.com/gv-sh/bloom-feedback/issues">share your feedback</a> with us and let us know what you think. Thank you for using Bloom!</p>
+
+                
+            </article>
+
+            <footer>
+                <p>The Mathscapes wordmark is a registered trademark of Mathscapes Research, which is incorporated under the Companies Act, 2013 (18 of 2013) in India.</p>
+
+<p><a target="_blank" href="https://twitter.com/mathscapes">Twitter</a> <a target="_blank" href="https://instagram.com/mathscapes">Instagram</a> <a target="_blank" href="/privacy">Privacy</a> <a target="_blank" href="/terms">Terms</a></p>
+            </footer>
+
+            <script>
+
+                // If the page is the index, then the logo should be hidden
+                if (document.title == "Index") {
+                    document.getElementById("back").addEventListener("click", function () { window.history.back(); });
+                }
+
+                function handleSystemThemeChange(e) {
+                    if (e.matches) {
+                        // Replace dark color logo 
+                        document.getElementById("logo").data = "https://cdn.mathscapes.xyz/static/images/2023/mathscapes_dark.svg";
+                    } else {
+                        // Light mode is enabled
+                        document.getElementById("logo").data = "https://cdn.mathscapes.xyz/static/images/2023/mathscapes.svg";
+                    }
+                }
+
+                // Add an initial call to handle the system theme
+                handleSystemThemeChange(window.matchMedia('(prefers-color-scheme: dark)'));
+
+                // Add a listener to detect changes in the system theme
+                window.matchMedia('(prefers-color-scheme: dark)').addListener(handleSystemThemeChange);
+
+            </script>
+        </main>
+    </body>
+</html>   

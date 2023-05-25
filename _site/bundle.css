@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap');
+
+* {
+    font-family: 'Fragment Mono', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+}
+
+body {
+    margin: 40px;
+    background-color: #fff;
+    color: #000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+article {
+    max-width: 1200px;
+    margin: 100px auto 100px auto;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.5;
+}
+
+h2 {
+    width: 600px;
+    margin: 80px auto 20px auto;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.5;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 200px auto 100px auto;
+}
+
+section.full {
+    max-width: 100%;
+    margin: 120px auto 120px auto;
+}
+
+article img {
+    margin: 120px auto 120px auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+p.caption {
+    width: 100%;
+    text-align: center;
+    margin: -100px auto 120px auto;
+    opacity: 0.5;
+}
+
+section.full * {
+    text-align: center;
+}
+
+section {
+    max-width: 600px;
+    margin: 80px auto 80px auto;
+}
+p, ol, ul {
+    max-width: 600px;
+    color: #000;
+    margin: 40px auto 40px auto;
+}
+
+header p {
+    margin: 20px auto 0px auto;
+}
+
+p.large {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.4;
+    margin: 50px 0 50px 0;
+}
+
+.caption {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+    transition: 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+a:hover {
+    opacity: 0.5;
+    transition: 0.2s ease-in-out;
+}
+
+nav a {
+    border-bottom: none;
+}
+
+.post {
+    width: 600px;
+    height: 128px;
+    margin: 20px auto 20px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post img {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+}
+
+.post div {
+    margin-left: 32px;
+    height: 128px;
+    width: calc(100% - 128px - 32px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post div p {
+    margin: 0;
+}
+
+.post div a {
+    width: fit-content;
+}
+
+.meta {
+    opacity: 0.5;
+}
+
+footer {
+    max-width: 600px;
+    margin: 100px auto 200px auto;
+    opacity: 0.5;
+}
+
+ol li {
+    margin: 20px 0 20px 0;
+}
+
+ul li {
+    list-style-type: none;
+    list-style: lower-alpha;
+}
+
+pre {
+    margin: 40px auto 40px auto;
+    max-width: 600px;
+}
+
+#logo {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: fit-content;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #000;
+        color: #fff;
+    }
+
+    h1,
+    h2,
+    p, ol li, ul li {
+        color: #fff;
+    }
+
+    a {
+        color: #fff;
+        border-bottom: 1px solid #fff;
+    }
+
+    a:hover {
+        opacity: 0.5;
+        transition: 0.2s ease-in-out;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        margin: 20px;
+    }
+
+    header {
+        margin: 100px auto 20px auto;
+    }
+
+    article {
+        margin: 100px auto 100px auto;
+    }
+
+    article img {
+        margin: 60px auto 60px auto;
+        max-width: 100%;
+    }
+
+    section {
+        margin: 80px auto 80px auto;
+    }
+
+    section.full {
+        margin: 120px auto 120px auto;
+    }
+
+    p, ol{
+        max-width: 100%;
+        margin: 40px auto 40px auto;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+        width: 100%;
+    }
+
+    p.large {
+        font-size: 20px;
+    }
+
+    .post {
+        width: 100%;
+        height: auto;
+        margin: 20px auto 20px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post img {
+        width: 100%;
+        margin: 0;
+        height: auto;
+        
+        object-fit: cover;
+    }
+
+    .post div {
+        margin-left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+    .post div a {
+        width: fit-content;
+    }
+
+    footer {
+        margin: 100px auto 200px auto;
+    }
+
+    footer * {
+        color: #fff;
+    }
+
+    p.caption {
+        margin: -50px auto 60px auto;
+    }
+}

@@ -1,0 +1,118 @@
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Add in beginning of head if including math equations -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+                onload="renderMathInElement(document.body, {
+                            delimiters: [
+                                {left: '$$', right: '$$', display: true},
+                                {left: '$', right: '$', display: false},
+                            ],
+                            throwOnError : false
+                        });"></script>
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KEN47XT3N8"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-KEN47XT3N8');
+        </script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mathscapes</title>
+        <link rel="stylesheet" href="/bundle.css">
+    </head>
+
+    <body>
+        <nav>
+            
+                <a></a>
+                <a href="/site-index">Index</a>
+            
+        </nav>
+        <main>
+            <article>
+                <header>
+                    
+                        <object id="logo" type="image/svg+xml" data="https://cdn.mathscapes.xyz/static/images/2023/mathscapes.svg"></object>
+                    
+                </header>
+                
+                <p>Mathscapes is a small research group that creatively experiments with abstract mathematical ideas, connecting the dots to a deeper understanding of the world around us. We build accessible tools, conduct research, and collaborate with researchers, educators, and creators to make mathematics and research more accessible.</p>
+<h2>Notes</h2>
+<div><div class="post">
+        <img src="https://cdn.mathscapes.xyz/static/images/2023/spacefill-0.2.jpg" />
+        <div>
+            <p class="meta">2023-05-17 • Design </p>
+            <p><a href="/notes/spacefill/0.1">Pre-release notes: Spacefill 0.2</a></p>
+        </div>
+    </div><div class="post">
+        <img src="https://cdn.mathscapes.xyz/static/images/2023/bloom-0.1.jpg" />
+        <div>
+            <p class="meta">2023-04-30 • Design </p>
+            <p><a href="/notes/bloom/0.1">Release notes: Bloom 0.1</a></p>
+        </div>
+    </div><div class="post">
+        <img src="https://cdn.mathscapes.xyz/static/images/2020/geometric-0.1.jpg" />
+        <div>
+            <p class="meta">2020-04-12 • Design </p>
+            <p><a href="/notes/geometric/0.1">Release notes: Geometric 0.1</a></p>
+        </div>
+    </div><div class="post">
+        <img src="https://cdn.mathscapes.xyz/static/images/2020/sigmoid-0.1.jpg" />
+        <div>
+            <p class="meta">2020-04-08 • Exploration </p>
+            <p><a href="/notes/sigmoid">Building Sigmoid — Open Toolkit for Teaching AI in K-12</a></p>
+        </div>
+    </div><div class="post">
+        <img src="https://cdn.mathscapes.xyz/static/images/2020/discoverdrome-0.1.jpg" />
+        <div>
+            <p class="meta">2020-04-08 • Imagination </p>
+            <p><a href="/notes/2020/discoverdrome">Discoverdrome — Re-imagining Learning Spaces for 2101</a></p>
+        </div>
+    </div></div>
+<p>Notes marked with [] are collaborative work. (+) indicates additional contribution from more people, including peers, mentors, or students. Names are sorted by first letter.</p>
+<p>GS: Gaurav Singh, PO: Prakhar Ojha, SS: Simran Singh, SW: Swati Sharma</p>
+
+                
+            </article>
+
+            <footer>
+                <p>The Mathscapes wordmark is a registered trademark of Mathscapes Research, which is incorporated under the Companies Act, 2013 (18 of 2013) in India.</p>
+
+<p><a target="_blank" href="https://twitter.com/mathscapes">Twitter</a> <a target="_blank" href="https://instagram.com/mathscapes">Instagram</a> <a target="_blank" href="/privacy">Privacy</a> <a target="_blank" href="/terms">Terms</a></p>
+            </footer>
+
+            <script>
+
+                // If the page is the index, then the logo should be hidden
+                if (document.title == "Index") {
+                    document.getElementById("back").addEventListener("click", function () { window.history.back(); });
+                }
+
+                function handleSystemThemeChange(e) {
+                    if (e.matches) {
+                        // Replace dark color logo 
+                        document.getElementById("logo").data = "https://cdn.mathscapes.xyz/static/images/2023/mathscapes_dark.svg";
+                    } else {
+                        // Light mode is enabled
+                        document.getElementById("logo").data = "https://cdn.mathscapes.xyz/static/images/2023/mathscapes.svg";
+                    }
+                }
+
+                // Add an initial call to handle the system theme
+                handleSystemThemeChange(window.matchMedia('(prefers-color-scheme: dark)'));
+
+                // Add a listener to detect changes in the system theme
+                window.matchMedia('(prefers-color-scheme: dark)').addListener(handleSystemThemeChange);
+
+            </script>
+        </main>
+    </body>
+</html>   
