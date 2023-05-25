@@ -1,6 +1,6 @@
 ---
 tags: post
-title: Discoverdrome — Re-imagining Learning Spaces for 2101
+title: Discoverdrome — Reimagining Learning Spaces for 2101 [SS]
 authors: SS
 date: 2020-04-08
 category: Imagination
@@ -15,7 +15,7 @@ permalink: /notes/2020/discoverdrome/
 </p>
 
 We wonder how the world will be by the end of this century. Would classrooms be the same as now, or will robots teach children? Does the tech-advancing world need humans to learn with/from machines, without learning about machines before? The needs of our present demand sustainable measures and conscious collaboration to best suit large-scale needs. This story presents a note on a plausible design of such a learning space in 2101.
-
+ 
 “Those who cannot remember the past are condemned to repeat it.” — George Santayana (From Vol.I, Reason in Common Sense, 1905)
 
 <img src="https://cdn.mathscapes.xyz/static/images/2020/dd_2.webp">
