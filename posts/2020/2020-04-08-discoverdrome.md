@@ -6,7 +6,7 @@ date: 2020-04-08
 category: Imagination
 cover: https://cdn.mathscapes.xyz/static/images/2020/discoverdrome-0.1.jpg
 layout: layouts/default.njk
-permalink: /notes/2020/discoverdrome
+permalink: /notes/2020/discoverdrome/
 --- 
 
 <img src="https://cdn.mathscapes.xyz/static/images/2020/discoverdrome-0.1.jpg">

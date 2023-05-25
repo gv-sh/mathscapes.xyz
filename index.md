@@ -15,7 +15,7 @@ Mathscapes is a small research group that creatively experiments with abstract m
         <img src="{{ post.data.cover }}" />
         <div>
             <p class="meta">{{ post.data.date | postDate }} • {{ post.data.category }} </p>
-            <p><a href="{{ post.url }}">{{ post.data.title }}</a></p>
+            <p><a href="{{ post.url | url }}">{{ post.data.title }}</a></p>
         </div>
     </div>
     {%- endfor -%}
