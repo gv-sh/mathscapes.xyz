@@ -39,7 +39,7 @@ title: Mathscapes
                 <a href="/site-index/">Index</a>
             {% elif title == "Index" %}
                 <a></a>
-                <a id="back"><img src="/images/close.svg" /></a>
+                <a id="back">..</a>
             {% else %}
                 <a href="/">Mathscapes</a>
                 <a href="/site-index/">Index</a>
@@ -58,7 +58,7 @@ title: Mathscapes
                             <p>{{ subtitle }}</p>
                         {% endif %}
                         {% if date and category %}
-                            <p class="meta">{{ date | postDate }} • {{ category }}</p>
+                            <p class="meta">{{ date | postDate }} / {{ category }}</p>
                         {% endif %}
                     {% endif %}
                 </header>
