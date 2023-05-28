@@ -7,7 +7,7 @@ cover: images/2012.png
    
 Mathscapes is a small research group that creatively experiments with abstract mathematical ideas, connecting the dots to a deeper understanding of the world around us. We build accessible tools, conduct research, and collaborate with researchers, educators, and creators to make mathematics and research more accessible.
 
-<h2>Featured</h2>
+## Featured
 
 <div class="post">
     <img src="https://cdn.mathscapes.xyz/static/images/2023/spacefill-0.2.jpg" />
@@ -30,13 +30,13 @@ Mathscapes is a small research group that creatively experiments with abstract m
 <div class="post">
     <img src="https://cdn.mathscapes.xyz/static/images/2020/geometric-0.1.jpg" />
     <div>
-        <p class="meta">0.1.4 ≍ F4 / Free</p>
+        <p class="meta">0.1.6 ≍ F6 / Free</p>
         <p>Geometric — Make math shapes and curves</p>
         <p><a href="https://www.figma.com/community/plugin/816329785694858088">Get for Figma</a>, <a href="/notes/geometric/0.1/">Release notes</a></p>
     </div>
 </div>
 
-<h2>Notes</h2>
+## Notes
   
 <div>
     {%- for post in collections.post reversed -%}
@@ -45,6 +45,7 @@ Mathscapes is a small research group that creatively experiments with abstract m
         <div>
             <p class="meta">{{ post.data.date | postDate }} / {{ post.data.category }} </p>
             <p><a href="{{ post.url | url }}">{{ post.data.title }}</a></p>
+            {% if post.data.attrib %}<p class="meta">{{ post.data.attrib }}</p>{% endif %}
         </div>
     </div>
     {%- endfor -%}

@@ -58,7 +58,7 @@ title: Mathscapes
                             <p>{{ subtitle }}</p>
                         {% endif %}
                         {% if date and category %}
-                            <p class="meta">{{ date | postDate }} / {{ category }}</p>
+                            <p class="meta">{{ date | postDate }} / {{ category }}{% if attrib %} / {{ attrib }}{% endif %}</p>
                         {% endif %}
                     {% endif %}
                 </header>
