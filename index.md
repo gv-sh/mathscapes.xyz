@@ -14,7 +14,7 @@ Mathscapes is an independent research lab and experiments with math in contexts 
     <div>
         <p class="meta">0.2.3 ≍ AE1 / Free</p>
         <p>Spacefill — Make generative patterns</p>
-        <p>Coming soon, <a href="/notes/spacefill/0.2/">Pre-release notes</a></p>
+        <p>Coming soon, <a href="/notes/2023/spacefill-0.2/">Pre-release notes</a></p>
     </div>
 </div>
 
@@ -23,7 +23,7 @@ Mathscapes is an independent research lab and experiments with math in contexts 
     <div>
         <p class="meta">0.1.6 ≍ F6 / Free</p>
         <p>Bloom — Make L-system drawings</p>
-        <p><a href="https://www.figma.com/community/plugin/1227286752522246727">Get for Figma</a>, <a href="/notes/bloom/0.1/">Release notes</a></p>
+        <p><a href="https://www.figma.com/community/plugin/1227286752522246727">Get for Figma</a>, <a href="/notes/2023/bloom-0.1/">Release notes</a></p>
     </div>
 </div>
 
@@ -32,7 +32,7 @@ Mathscapes is an independent research lab and experiments with math in contexts 
     <div>
         <p class="meta">0.1.6 ≍ F6 / Free</p>
         <p>Geometric — Make math shapes and curves</p>
-        <p><a href="https://www.figma.com/community/plugin/816329785694858088">Get for Figma</a>, <a href="/notes/geometric/0.1/">Release notes</a></p>
+        <p><a href="https://www.figma.com/community/plugin/816329785694858088">Get for Figma</a>, <a href="/notes/2023/geometric-0.1/">Release notes</a></p>
     </div>
 </div>
 
