@@ -1,6 +1,3 @@
----
-title: Mathscapes
----
 
 <!doctype html>
 <html lang="en">
@@ -28,7 +25,7 @@ title: Mathscapes
         </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ title }}</title>
+        <title>Pre-release notes: Spacefill 0.2</title>
         <link rel="stylesheet" href="https://cdn.mathscapes.xyz/static/css/notebook.css">
         <style>
             #logo {
@@ -39,41 +36,47 @@ title: Mathscapes
 
     <body>
         <nav>
-            {% if title == "Mathscapes" %}
-                <a></a>
-                <a href="/site-index/">Index</a>
-            {% elif title == "Index" %}
-                <a></a>
-                <a id="back">..</a>
-            {% else %}
+            
                 <a href="/">Mathscapes</a>
                 <a href="/site-index/">Index</a>
-            {% endif %}
+            
         </nav>
         <main>
             <article>
                 <header>
-                    {% if title == "Mathscapes" %}
-                        <object id="logo" type="image/svg+xml" data="https://cdn.mathscapes.xyz/static/images/2023/mathscapes.svg"></object>
-                    {% elif title == "Index" %}
-                        <h1></h1>
-                    {% else %}
-                        <h1>{{ title }}</h1>
-                        {% if subtitle %}
-                            <p>{{ subtitle }}</p>
-                        {% endif %}
-                        {% if date and category %}
-                            <p class="meta">{{ date | postDate }} / {{ category }}{% if attrib %} / {{ attrib }}{% endif %}</p>
-                        {% endif %}
-                    {% endif %}
+                    
+                        <h1>Pre-release notes: Spacefill 0.2</h1>
+                        
+                        
+                            <p class="meta">2023-05-17 / Design</p>
+                        
+                    
                 </header>
                 
-                {{ content | safe }}
+                <img src="https://cdn.mathscapes.xyz/static/images/2023/spacefill-0.2.jpg"/>
+<p>Cover</p>
+<p>Add a creative touch to your work with Spacefill, which creates seamless and unique background patterns by combining geometric shapes and tiling styles. With Spacefill, you can generate graphics in real-time, giving you access to a range of tiling patterns.</p>
+<p>Coming soon!</p>
+<p>0.2.4: 18.05.23<br/>
+Added new patterns</p>
+<p>0.2.2/3: 17.05.23<br/>
+Improved drag and drop support<br/>
+Added drag and drop support</p>
+<p>0.2.0: 16.05.23<br/>
+Fixed slow loading<br/>
+Refined overall UI<br/>
+Refactored implementation<br/>
+Optimised pattern drawing logic<br/>
+Added keyboard navigation<br/>
+Added preloading screen</p>
+
                 
             </article>
 
             <footer>
-                {% include "partials/_footer.html" %}
+                <p>The Mathscapes wordmark is a registered trademark of Mathscapes Research, which is incorporated under the Companies Act, 2013 (18 of 2013) in India.</p>
+
+<p><a target="_blank" href="https://twitter.com/mathscapes">Twitter</a> <a target="_blank" href="https://instagram.com/mathscapes">Instagram</a> <a target="_blank" href="/privacy/">Privacy</a> <a target="_blank" href="/terms/">Terms</a></p>
             </footer>
 
             <script>

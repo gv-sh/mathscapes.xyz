@@ -32,7 +32,7 @@ Mathscapes is an independent research lab and experiments with math in contexts 
     <div>
         <p class="meta">0.1.6 ≍ F6 / Free</p>
         <p>Geometric — Make math shapes and curves</p>
-        <p><a href="https://www.figma.com/community/plugin/816329785694858088">Get for Figma</a>, <a href="/notes/2023/geometric-0.1/">Release notes</a></p>
+        <p><a href="https://www.figma.com/community/plugin/816329785694858088">Get for Figma</a>, <a href="/notes/2020/geometric-0.1/">Release notes</a></p>
     </div>
 </div>
 
