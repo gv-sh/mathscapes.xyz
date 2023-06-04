@@ -5,8 +5,6 @@ subtitle: Research lab
 cover: images/2012.png
 ---  
 
-Mathscapes is an independent research lab and experiments with math in contexts of algorithms, animation, architecture, artificial intelligence, art history, astronomy, bioinformatics, biology, cognitive science, computer graphics, computer science, computer vision, cryptography, design, economics, education, engineering, environmental studies, generative art, graphic design, human-computer interaction, illustration, information theory, industrial design, interface design, machine learning, medical imaging, music, natural sciences, network analysis, physics, psychology, simulations, statistics, virtual reality, visual arts, web.
-
 ## Featured
 
 <div class="post">
