@@ -4,12 +4,12 @@ title: Mathscapes' Summer of 2019
 attrib: Simran Singh
 date: 2020-04-25
 category: Reflection
-cover: https://cdn.mathscapes.xyz/static/images/2017/switching.jpg
+cover: https://cdn.mathscapes.xyz/static/images/empty.svg
 layout: layouts/default.njk
 permalink: /notes/2020/mathscapes-summer-of-2019/
 --- 
 
-<img src="https://cdn.mathscapes.xyz/static/images/2017/switching.jpg">
+<img src="https://cdn.mathscapes.xyz/static/images/2017/empty.svg">
 
 \> I think I understood the nuances of dealing with complexity.
 
