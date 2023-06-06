@@ -9,8 +9,6 @@ layout: layouts/default.njk
 permalink: /notes/2020/mathscapes-summer-of-2019/
 --- 
 
-<img src="https://cdn.mathscapes.xyz/static/images/2017/empty.svg">
-
 \> I think I understood the nuances of dealing with complexity.
 
 I had a lot to say. And this is by far my most procrastinated task. And I would explain my journey of the things I learned in the words that I can try, along with my document of procrastination, knowing that I’ll laugh someday or judge myself in the future when I’m wiser. I’m glad you’re here and find this of interest.
