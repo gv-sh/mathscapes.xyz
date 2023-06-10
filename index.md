@@ -28,7 +28,7 @@ cover: images/2012.png
 <div class="post">
     <img src="https://cdn.mathscapes.xyz/static/images/2020/geometric-0.1.jpg" />
     <div>
-        <p class="meta">0.1.6 ≍ F6 / Free</p>
+        <p class="meta">0.1.7 ≍ F7 / Free</p>
         <p>Geometric — Make math shapes and curves</p>
         <p><a href="https://www.figma.com/community/plugin/816329785694858088">Get for Figma</a>, <a href="/notes/2020/geometric-0.1/">Release notes</a></p>
     </div>
@@ -48,8 +48,4 @@ cover: images/2012.png
     </div>
     {%- endfor -%}
 </div>
-  
-Notes marked with [] are collaborative work. (+) indicates additional contribution from more people, including peers, mentors, or students. Names are sorted by first letter.
 
-GS: Gaurav Singh, PO: Prakhar Ojha, SS: Simran Singh, SW: Swati Sharma
- 
