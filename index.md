@@ -10,9 +10,9 @@ cover: images/2012.png
 <div class="post">
     <img src="https://cdn.mathscapes.xyz/static/images/2023/spacefill-0.2.jpg" />
     <div>
-        <p class="meta">0.2.3 ≍ AE1 / Free</p>
+        <p class="meta">0.2.7 ≍ AE1 / Free</p>
         <p>Spacefill — Make generative patterns</p>
-        <p>Coming soon, <a href="/notes/2023/spacefill-0.2/">Pre-release notes</a></p>
+        <p><a href="https://new.express.adobe.com/new?category=addOns&addOnId=w466h1l71">Get for Adobe Express</a>, <a href="/notes/2023/spacefill-0.2/">Release notes</a></p>
     </div>
 </div>
 
