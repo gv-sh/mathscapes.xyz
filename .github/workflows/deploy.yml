@@ -1,14 +1,14 @@
-name: Deploy to GitHub Pages
+name: Deploy Release to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - 'v*'
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    if: github.ref_type == 'tag'
     
     permissions:
       contents: read
