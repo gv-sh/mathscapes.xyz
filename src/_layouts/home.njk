@@ -1,0 +1,12 @@
+---
+layout: base.njk
+---
+
+{% include "intro.njk" %}
+
+{% include "cta.njk" %}
+
+{% if collections.posts.length > 0 %}
+<h2>Recent Posts</h2>
+{% include "post-list.njk" %}
+{% endif %}

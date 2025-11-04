@@ -1,0 +1,19 @@
+{
+  "name": "gaurav-singh.info",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --watch",
+    "clean": "rm -rf _site",
+    "start": "npm run dev"
+  },
+  "author": "Gaurav Singh",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "@11ty/eleventy-plugin-rss": "^1.2.0"
+  }
+}

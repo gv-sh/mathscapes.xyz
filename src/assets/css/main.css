@@ -1,0 +1,35 @@
+@import url('./variables.css');
+
+* {
+    font-size: var(--font-size) !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    line-height: var(--line-height) !important;
+}
+
+body {
+    margin: var(--body-margin) !important;
+    font-family: var(--font-family) !important;
+    max-width: var(--max-width) !important;
+    color: var(--text-color) !important;
+}
+
+a {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+    text-decoration-color: var(--link-underline) !important;
+    text-underline-offset: var(--link-underline-offset) !important;
+}
+
+a:hover {
+    text-decoration-color: var(--link-underline-hover) !important;
+}
+
+h2 + p {
+    margin-bottom: 0 !important;
+}
+
+h2 + p ~ p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}

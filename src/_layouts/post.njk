@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+
+<h1><a href="/">{{ site.author.name }}</a></h1>
+
+<h1>{{ title }}</h1>
+<p><time datetime="{{ date | date }}">{{ date | date }}</time></p>
+
+{% if tags %}
+<p>Tags: 
+{% for tag in tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor %}
+</p>
+{% endif %}
+
+{{ content | safe }}

@@ -1,0 +1,11 @@
+{
+  "title": "Gaurav Singh",
+  "description": "Personal website and blog",
+  "url": "https://gaurav-singh.info",
+  "author": {
+    "name": "Gaurav Singh",
+    "email": "hi@gvsh.cc",
+    "intro": "Gaurav is a researcher at the intersection of design, machine learning, and engineering. Originally from India and now based on the Gold Coast, he was a faculty member at Srishti Manipal Institute from 2017 to 2022. His work explores how mathematical and computational approaches can solve complex problems across disciplines.",
+    "cta_text": "Work with me"
+  }
+}

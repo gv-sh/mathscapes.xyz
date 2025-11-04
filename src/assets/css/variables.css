@@ -1,0 +1,12 @@
+:root {
+  --font-size: 18px;
+  --font-family: 'Times New Roman', Times, serif;
+  --line-height: 1.2;
+  --body-margin: 1em;
+  --max-width: 600px;
+  --text-color: #333;
+  --link-color: #333;
+  --link-underline: #ccc;
+  --link-underline-hover: #333;
+  --link-underline-offset: 3px;
+}
