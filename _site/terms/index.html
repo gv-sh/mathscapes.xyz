@@ -1,0 +1,102 @@
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Add in beginning of head if including math equations -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+                onload="renderMathInElement(document.body, {
+                            delimiters: [
+                                {left: '$$', right: '$$', display: true},
+                                {left: '$', right: '$', display: false},
+                            ],
+                            throwOnError : false
+                        });"></script>
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVVE0ER640"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-NVVE0ER640');
+        </script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Terms</title>
+        <link rel="stylesheet" href="https://cdn.mathscapes.xyz/static/css/notebook.css">
+        <style>
+            #logo {
+                margin-bottom: 60px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav>
+            
+                <a href="/">Mathscapes</a>
+                <a href="/site-index/">Index</a>
+            
+        </nav>
+        <main>
+            <article>
+                <header>
+                    
+                        <h1>Terms</h1>
+                        
+                        
+                    
+                </header>
+                
+                <p>Effective date: May 7, 2023</p>
+<p>By using our website and tools, you agree to the following terms and conditions:</p>
+<ol>
+<li>Content: We provide tools and information on this website for general informational purposes only. We make no warranties or representations about the accuracy, completeness, or suitability of the information provided.</li>
+<li>Intellectual Property: The Mathscapes wordmark is a registered trademark of Mathscapes Research, which is incorporated under the Companies Act, 2013 (18 of 2013) in India, and is protected by trademark. All the remaining materials, including but not limited to text, graphics, images, and software, on this website are the property of Mathscapes Research (OPC) Pvt. Ltd., Gaurav Singh, or other contributors as stated. You may not copy, modify, distribute, or use any materials on this website without our prior written consent.</li>
+<li>User Conduct: You agree to use this website and tools only for lawful purposes and in a manner that does not infringe the rights of, or restrict or inhibit the use and enjoyment of, this website and tools by any third party.</li>
+<li>Limitation of Liability: We are not liable for any damages of any kind arising from the use of this website and tools, including but not limited to direct, indirect, incidental, punitive, and consequential damages.</li>
+<li>Changes to Terms: We reserve the right to modify these terms and conditions at any time, without notice. Your continued use of this website and tools after any changes to these terms and conditions shall constitute your acceptance of such changes.</li>
+<li>Governing Law: These terms and conditions shall be governed by and construed in accordance with the laws of India.</li>
+<li>By using our website and tools, you acknowledge that you have read and understood these terms and conditions and agree to be bound by them. If you do not agree to these terms and conditions, you should not use our website and tools.</li>
+</ol>
+<p>Contact: If you have any further questions about this terms of service, please contact at <a href="mailto:hello@mathscapes.xyz">email</a>.</p>
+
+                
+            </article>
+
+            <footer>
+                <p>The Mathscapes wordmark is a registered trademark of Mathscapes Research, which is incorporated under the Companies Act, 2013 (18 of 2013) in India.</p>
+
+<p><a target="_blank" href="https://twitter.com/mathscapes">Twitter</a> <a target="_blank" href="https://instagram.com/mathscapes">Instagram</a> <a target="_blank" href="/privacy/">Privacy</a> <a target="_blank" href="/terms/">Terms</a></p>
+            </footer>
+
+            <script>
+
+                // If the page is the index, then the logo should be hidden
+                if (document.title == "Index") {
+                    document.getElementById("back").addEventListener("click", function () { window.history.back(); });
+                }
+
+                function handleSystemThemeChange(e) {
+                    if (e.matches) {
+                        // Replace dark color logo 
+                        document.getElementById("logo").data = "https://cdn.mathscapes.xyz/static/images/2023/mathscapes_dark.svg";
+                    } else {
+                        // Light mode is enabled
+                        document.getElementById("logo").data = "https://cdn.mathscapes.xyz/static/images/2023/mathscapes.svg";
+                    }
+                }
+
+                // Add an initial call to handle the system theme
+                handleSystemThemeChange(window.matchMedia('(prefers-color-scheme: dark)'));
+
+                // Add a listener to detect changes in the system theme
+                window.matchMedia('(prefers-color-scheme: dark)').addListener(handleSystemThemeChange);
+
+            </script>
+        </main>
+    </body>
+</html>   

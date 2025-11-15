@@ -1,0 +1,105 @@
+---
+title: Mathscapes
+---
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Add in beginning of head if including math equations -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+                onload="renderMathInElement(document.body, {
+                            delimiters: [
+                                {left: '$$', right: '$$', display: true},
+                                {left: '$', right: '$', display: false},
+                            ],
+                            throwOnError : false
+                        });"></script>
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVVE0ER640"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-NVVE0ER640');
+        </script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="https://cdn.mathscapes.xyz/static/css/notebook.css">
+        <style>
+            #logo {
+                margin-bottom: 60px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav>
+            {% if title == "Mathscapes" %}
+                <a></a>
+                <a href="/site-index/">Index</a>
+            {% elif title == "Index" %}
+                <a></a>
+                <a id="back">..</a>
+            {% else %}
+                <a href="/">Mathscapes</a>
+                <a href="/site-index/">Index</a>
+            {% endif %}
+        </nav>
+        <main>
+            <article>
+                <header>
+                    {% if title == "Mathscapes" %}
+                        <object id="logo" type="image/svg+xml" data="https://cdn.mathscapes.xyz/static/images/2023/mathscapes.svg"></object>
+                    {% elif title == "Index" %}
+                        <h1></h1>
+                    {% else %}
+                        <h1>{{ title }}</h1>
+                        {% if subtitle %}
+                            <p>{{ subtitle }}</p>
+                        {% endif %}
+                        {% if date and category %}
+                            <p class="meta">{{ date | postDate }} / {{ category }}{% if attrib %} / {{ attrib }}{% endif %}</p>
+                        {% endif %}
+                    {% endif %}
+                </header>
+                
+                {{ content | safe }}
+                
+            </article>
+
+            <footer>
+                {% include "partials/_footer.html" %}
+            </footer>
+
+            <script>
+
+                // If the page is the index, then the logo should be hidden
+                if (document.title == "Index") {
+                    document.getElementById("back").addEventListener("click", function () { window.history.back(); });
+                }
+
+                function handleSystemThemeChange(e) {
+                    if (e.matches) {
+                        // Replace dark color logo 
+                        document.getElementById("logo").data = "https://cdn.mathscapes.xyz/static/images/2023/mathscapes_dark.svg";
+                    } else {
+                        // Light mode is enabled
+                        document.getElementById("logo").data = "https://cdn.mathscapes.xyz/static/images/2023/mathscapes.svg";
+                    }
+                }
+
+                // Add an initial call to handle the system theme
+                handleSystemThemeChange(window.matchMedia('(prefers-color-scheme: dark)'));
+
+                // Add a listener to detect changes in the system theme
+                window.matchMedia('(prefers-color-scheme: dark)').addListener(handleSystemThemeChange);
+
+            </script>
+        </main>
+    </body>
+</html>   
