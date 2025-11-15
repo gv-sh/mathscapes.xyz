@@ -1,11 +1,11 @@
 {
-  "title": "Gaurav Singh",
-  "description": "Personal website and blog",
-  "url": "https://gaurav-singh.info",
+  "title": "Mathscapes",
+  "description": "Exploring the intersection of mathematics and design",
+  "url": "https://mathscapes.xyz",
   "author": {
-    "name": "Gaurav Singh",
-    "email": "hi@gvsh.cc",
-    "intro": "Gaurav is a researcher at the intersection of design, machine learning, and engineering. Originally from India and now based on the Gold Coast, he was a faculty member at Srishti Manipal Institute from 2017 to 2022. His work explores how mathematical and computational approaches can solve complex problems across disciplines.",
-    "cta_text": "Work with me"
+    "name": "Mathscapes",
+    "email": "hello [at] mathscapes [dot] xyz",
+    "intro": "Mathscapes is a design and research studio that makes mathematics visible and understandable. We create interactive explorations that reveal the mathematical thinking behind complex systems, from algorithms and creative tools to decision frameworks.",
+    "cta_text": "Get in touch"
   }
 }

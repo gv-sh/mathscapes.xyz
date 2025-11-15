@@ -1,14 +1,14 @@
 {
-  "name": "gaurav-singh.info",
-  "version": "1.0.1",
-  "description": "Personal website",
+  "name": "mathscapes.xyz",
+  "version": "1.0.0",
+  "description": "Mathscapes company website",
   "scripts": {
     "build": "eleventy",
     "dev": "eleventy --serve --watch",
     "clean": "rm -rf _site",
     "start": "npm run dev"
   },
-  "author": "Gaurav Singh",
+  "author": "Mathscapes",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"

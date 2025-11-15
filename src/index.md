@@ -1,5 +1,5 @@
 ---
 layout: home.njk
 title: "Home"
-description: "Personal website and blog of Gaurav Singh"
+description: "Mathscapes - Exploring the intersection of mathematics and design"
 ---
