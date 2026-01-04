@@ -6,6 +6,7 @@
     "name": "Mathscapes",
     "email": "hello [at] mathscapes [dot] xyz",
     "intro": "Mathscapes is a design and research studio that makes mathematics visible and understandable. We create interactive explorations that reveal the mathematical thinking behind complex systems, from algorithms and creative tools to decision frameworks.",
-    "cta_text": "Get in touch"
+    "cta_text": "Get in touch",
+    "status": "Building <a href=\"https://github.com/mathscapes/iterflow\">Iterflow</a>"
   }
 }

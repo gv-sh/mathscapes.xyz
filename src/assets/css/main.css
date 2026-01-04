@@ -33,3 +33,7 @@ h2 + p ~ p {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
 }
+
+.status {
+    opacity: 0.7 !important;
+}
