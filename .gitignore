@@ -6,6 +6,9 @@ yarn-error.log*
 
 # 11ty output
 _site/
+
+# Docs/plans
+docs/
 dist/
 build/
 

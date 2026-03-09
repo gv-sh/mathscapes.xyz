@@ -1,12 +1,21 @@
-:root {
+:root, :root[data-theme="light"] {
   --font-size: 18px;
-  --font-family: 'Source Sans 3', sans-serif;
-  --line-height: 1.2;
+  --font-family: 'Inter Variable', 'Inter', sans-serif;
+  --line-height: 1.45;
   --body-margin: 1em;
   --max-width: 600px;
-  --text-color: #333;
-  --link-color: #333;
+  --bg-color: #ffffff;
+  --text-color: #444444;
+  --link-color: #0000ee;
   --link-underline: #ccc;
-  --link-underline-hover: #333;
+  --link-underline-hover: #0000ee;
   --link-underline-offset: 3px;
+}
+
+:root[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #cccccc;
+  --link-color: #66b3ff;
+  --link-underline: #444;
+  --link-underline-hover: #66b3ff;
 }

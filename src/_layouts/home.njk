@@ -6,7 +6,41 @@ layout: base.njk
 
 {% include "cta.njk" %}
 
-{% if collections.posts.length > 0 %}
-<h2>Recent Posts</h2>
-{% include "post-list.njk" %}
-{% endif %}
+<div class="content-grid">
+  <div class="main-col">
+    <h2>Publications</h2>
+
+    <div class="publication">
+      <div class="pub-info">
+        <a class="pub-title" href="https://doi.org/10.5281/zenodo.18610143">Iterflow: Composable Streaming Statistics for JavaScript</a>
+        <div class="pub-meta">G. Singh</div>
+        <div class="pub-meta">Mathscapes</div>
+      </div>
+      <span class="pub-year">2026</span>
+    </div>
+
+    <div class="publication">
+      <div class="pub-info">
+        <a class="pub-title" href="https://doi.org/10.1177/20414196241281069">Automated detection of deformation mechanisms in re-entrant honeycomb auxetics using machine learning</a>
+        <div class="pub-meta">G. Singh, R. S. Dhari, Z. Javanbakht</div>
+        <div class="pub-meta">International Journal of Protective Structures</div>
+      </div>
+      <span class="pub-year">2024</span>
+    </div>
+
+    {% if collections.posts.length > 0 %}
+    <h2>Recent Posts</h2>
+    {% include "post-list.njk" %}
+    {% endif %}
+  </div>
+
+  <aside class="side-col">
+    <h2>Co-authors</h2>
+    {% for author in site.coauthors %}
+      <div class="coauthor-name">
+        {% if author.url %}<a href="{{ author.url }}">{{ author.name }}</a>{% else %}{{ author.name }}{% endif %}
+        <span class="coauthor-count">{{ author.count }}</span>
+      </div>
+    {% endfor %}
+  </aside>
+</div>

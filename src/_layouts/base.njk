@@ -5,32 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://rsms.me">
+    <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/main.css">
-    
+
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
-    
+
     <!-- SEO Meta Tags -->
     <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
     <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    
-    <!-- No JavaScript frameworks - keep it simple and fast -->
 </head>
 <body>
     <main>
         {{ content | safe }}
     </main>
+
+    <!-- Theme toggle script -->
+    <script>
+    (function() {
+      'use strict';
+
+      const ICONS = {
+        'light': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 1ZM10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM12.95 4.11a.75.75 0 1 0-1.06-1.06l-1.062 1.06a.75.75 0 0 0 1.061 1.062l1.06-1.061ZM15 8a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 15 8ZM11.89 12.95a.75.75 0 0 0 1.06-1.06l-1.06-1.062a.75.75 0 0 0-1.062 1.061l1.061 1.06ZM8 12a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 8 12ZM5.172 11.89a.75.75 0 0 0-1.061-1.062L3.05 11.89a.75.75 0 1 0 1.06 1.06l1.06-1.06ZM4 8a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 4 8ZM4.11 5.172A.75.75 0 0 0 5.173 4.11L4.11 3.05a.75.75 0 1 0-1.06 1.06l1.06 1.06Z" /></svg>',
+        'dark': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M14.438 10.148c.19-.425-.321-.787-.748-.601A5.5 5.5 0 0 1 6.453 2.31c.186-.427-.176-.938-.6-.748a6.501 6.501 0 1 0 8.585 8.586Z" /></svg>'
+      };
+
+      function getInitialTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) return savedTheme;
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+        return 'light';
+      }
+
+      function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateToggleButton(theme);
+      }
+
+      function updateToggleButton(theme) {
+        const button = document.querySelector('.theme-toggle');
+        if (button) {
+          button.innerHTML = ICONS[theme];
+          button.setAttribute('aria-label', `Switch to ${theme === 'light' ? 'dark' : 'light'} mode`);
+        }
+      }
+
+      const initialTheme = getInitialTheme();
+      document.documentElement.setAttribute('data-theme', initialTheme);
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const button = document.createElement('button');
+        button.className = 'theme-toggle';
+        button.innerHTML = ICONS[initialTheme];
+        button.setAttribute('aria-label', `Switch to ${initialTheme === 'light' ? 'dark' : 'light'} mode`);
+
+        button.addEventListener('click', function() {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          setTheme(currentTheme === 'light' ? 'dark' : 'light');
+        });
+
+        document.body.appendChild(button);
+      });
+    })();
+    </script>
 </body>
 </html>
