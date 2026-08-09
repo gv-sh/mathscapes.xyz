@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gaurav-singh.info/sitemap.xml
+# AI / LLM crawlers welcome to index for discovery
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://mathscapes.xyz/sitemap.xml
+# LLM discovery: https://mathscapes.xyz/llms.txt

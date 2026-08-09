@@ -11,27 +11,40 @@ layout: base.njk
     <h2>Publications</h2>
 
     <div class="publication">
+      <div class="pub-thumb">{{ "https://doi.org/10.1088/3049-4761/ae7df3" | identicon | safe }}</div>
+      <div class="pub-info">
+        <a class="pub-title" href="https://doi.org/10.1088/3049-4761/ae7df3">A framework for visual-mathematical literacy in applied machine learning: why representation choices shape what models can learn</a>
+        <div class="pub-meta"><a href="/people/gaurav-singh/">G. Singh</a>, <a href="/people/rahul-singh-dhari/">R. S. Dhari</a></div>
+        <div class="pub-meta">Machine Learning: Engineering</div>
+      </div>
+      <span class="pub-year">2026</span>
+    </div>
+
+    <div class="publication">
+      <div class="pub-thumb">{{ "https://doi.org/10.5281/zenodo.18610143" | identicon | safe }}</div>
       <div class="pub-info">
         <a class="pub-title" href="https://doi.org/10.5281/zenodo.18610143">Iterflow: Composable Streaming Statistics for JavaScript</a>
-        <div class="pub-meta">G. Singh</div>
+        <div class="pub-meta"><a href="/people/gaurav-singh/">G. Singh</a></div>
         <div class="pub-meta">Mathscapes</div>
       </div>
       <span class="pub-year">2026</span>
     </div>
 
     <div class="publication">
+      <div class="pub-thumb">{{ "https://doi.org/10.1177/20414196241281069" | identicon | safe }}</div>
       <div class="pub-info">
         <a class="pub-title" href="https://doi.org/10.1177/20414196241281069">Automated detection of deformation mechanisms in re-entrant honeycomb auxetics using machine learning</a>
-        <div class="pub-meta">G. Singh, R. S. Dhari, Z. Javanbakht</div>
+        <div class="pub-meta"><a href="/people/gaurav-singh/">G. Singh</a>, <a href="/people/rahul-singh-dhari/">R. S. Dhari</a>, Z. Javanbakht</div>
         <div class="pub-meta">International Journal of Protective Structures</div>
       </div>
       <span class="pub-year">2024</span>
     </div>
 
     <div class="publication">
+      <div class="pub-thumb">{{ "https://doi.org/10.1080/13588265.2020.1866859" | identicon | safe }}</div>
       <div class="pub-info">
         <a class="pub-title" href="https://doi.org/10.1080/13588265.2020.1866859">On the crushing behaviour of scutoid-based bioinspired cellular structures</a>
-        <div class="pub-meta">R. S. Dhari, N. P. Patel</div>
+        <div class="pub-meta"><a href="/people/rahul-singh-dhari/">R. S. Dhari</a>, N. P. Patel</div>
         <div class="pub-meta">International Journal of Crashworthiness</div>
       </div>
       <span class="pub-year">2021</span>
@@ -44,12 +57,8 @@ layout: base.njk
   </div>
 
   <aside class="side-col">
-    <h2>Co-authors</h2>
-    {% for author in site.coauthors %}
-      <div class="coauthor-name">
-        {% if author.url %}<a href="{{ author.url }}">{{ author.name }}</a>{% else %}{{ author.name }}{% endif %}
-        <span class="coauthor-count">{{ author.count }}</span>
-      </div>
-    {% endfor %}
+    <h2>Contributors</h2>
+    <div class="coauthor-name"><a href="/people/gaurav-singh/">Gaurav Singh</a></div>
+    <div class="coauthor-name"><a href="/people/rahul-singh-dhari/">Rahul Singh</a></div>
   </aside>
 </div>

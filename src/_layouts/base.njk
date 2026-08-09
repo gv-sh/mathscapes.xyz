@@ -9,10 +9,6 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://rsms.me">
-    <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
-
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/main.css">
 
@@ -20,10 +16,31 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
 
     <!-- SEO Meta Tags -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    {% if tags %}<meta name="keywords" content="{% for t in tags %}{{ t | stripTags }}{% if not loop.last %}, {% endif %}{% endfor %}">{% endif %}
+    <meta name="author" content="{% if name %}{{ name }}{% else %}{{ site.author.name }}{% endif %}">
+
+    <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
     <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{% if publications %}profile{% else %}website{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}/assets/ms_light.png">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ site.author.twitter }}">
+    <meta name="twitter:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="{{ site.url }}/assets/ms_light.png">
+
+    <!-- Structured data -->
+    {% if publications %}
+    <script type="application/ld+json">{{ name | personLd(affiliation, page.url, publications, links, site.url, tags) | safe }}</script>
+    {% elif page.url == "/" %}
+    <script type="application/ld+json">{{ site | orgLd | safe }}</script>
+    {% endif %}
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVVE0ER640"></script>

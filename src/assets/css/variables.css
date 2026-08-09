@@ -1,6 +1,6 @@
 :root, :root[data-theme="light"] {
   --font-size: 18px;
-  --font-family: 'Inter Variable', 'Inter', sans-serif;
+  --font-family: Verdana, Geneva, Tahoma, sans-serif;
   --line-height: 1.45;
   --body-margin: 1em;
   --max-width: 600px;
