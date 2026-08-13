@@ -1,5 +1,5 @@
 ---
 layout: home.njk
 title: "Home"
-description: "Mathscapes - Exploring the intersection of mathematics and design"
+description: "Applied machine learning, research tooling, and technical figures for research and engineering teams."
 ---

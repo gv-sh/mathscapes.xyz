@@ -1,11 +1,11 @@
 {
   "title": "Mathscapes",
-  "description": "Exploring the intersection of mathematics and design",
+  "description": "Applied machine learning, research tooling, and technical figures for research and engineering teams.",
   "url": "https://mathscapes.xyz",
   "author": {
     "name": "Mathscapes",
     "email": "hi@gvsh.cc",
-    "intro": "Mathscapes is a design and research studio that makes mathematics visible and understandable. We create interactive explorations that reveal the mathematical thinking behind complex systems, from algorithms and creative tools to decision frameworks.",
+    "intro": "Mathscapes works at the intersection of machine learning, research software, and technical communication. We build models and analysis pipelines for teams working with real-world measurement data, develop the tooling that research and engineering groups need but rarely have time to build, and produce publication-quality technical figures in code. The common thread is legibility — making mathematical work readable to a model, to a reader, and to whoever picks up the code next.",
     "cta_text": "Email",
     "twitter": "mathscapes",
     "instagram": "mathscapes",

@@ -110,6 +110,14 @@ h2 {
     margin-bottom: 1em !important;
 }
 
+h3 {
+    font-size: var(--font-size) !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    margin-top: 1.5em !important;
+    margin-bottom: 0.75em !important;
+}
+
 .affiliation {
     display: block !important;
     margin-top: 0.25em !important;
