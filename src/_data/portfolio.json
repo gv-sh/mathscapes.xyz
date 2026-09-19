@@ -1,0 +1,246 @@
+[
+  {
+    "slug": "from-simulation-to-classification",
+    "title": "Classifying auxetic deformation",
+    "group": "tooling",
+    "summary": "Follow a re-entrant honeycomb from simulation and plastic-hinge images to cluster labels, then examine what the reported classifier agreement can tell us.",
+    "source": {
+      "title": "Automated detection of deformation mechanisms in re-entrant honeycomb auxetics using machine learning",
+      "url": "https://doi.org/10.1177/20414196241281069",
+      "support": "https://www.researchgate.net/publication/384887896_Automated_detection_of_deformation_mechanisms_in_re-entrant_honeycomb_auxetics_using_machine_learning"
+    },
+    "scope": "An original research interpretation of the accepted manuscript. The specimen and image-processing strip are explanatory illustrations, not original simulation output. Reported results are distinguished from a proposed evaluation. This is one of two portfolio perspectives on the same paper.",
+    "sections": [
+      {
+        "title": "Sample provenance",
+        "text": "A 7 \u00d7 8-cell plane-stress model produces 1,847 frames across five loading angles. Augmentation yields 10,000 images; 64 \u00d7 64 pixels supply 4,096 features. K-means uses eight clusters. Balancing by augmentation then yields 24,000 images, with 3,000 per cluster."
+      },
+      {
+        "title": "What becomes an image",
+        "text": "Regions above 10% equivalent plastic strain guide plastic-hinge tracing. The operation schematics distinguish a structure with highlighted regions, a binary mask, a centered 128 \u00d7 128 crop, and flattening the prepared 64 \u00d7 64 image into 4,096 values. Dilation and Gaussian blur precede the final input. These are explanatory diagrams, not measured strain fields or original simulation images."
+      },
+      {
+        "title": "Evaluation",
+        "text": "The augmented images are shuffled into 60% training, 20% validation and 20% test partitions: 14,400, 4,800 and 4,800 images. At learning rate 0.001, batch size 64 and 100 epochs, the manuscript reports 88.77% validation and 88.08% test accuracy against cluster-derived labels."
+      },
+      {
+        "title": "Interpretation",
+        "text": "Agreement with a cluster label is different from independently verified mechanical truth. Four of six refers to recovered reference mechanisms; y and horizontal V were not recovered. Our proposed next evaluation holds out entire simulations before augmentation and asks independent experts to assess mechanical interpretations. This evaluation was not reported."
+      }
+    ],
+    "paper": "A1",
+    "orientation": "landscape",
+    "sizeMM": [
+      841,
+      594
+    ],
+    "pages": 1,
+    "study": "Auxetic deformation study",
+    "previewWidth": 841,
+    "previewHeight": 594
+  },
+  {
+    "slug": "statistics-without-the-history",
+    "title": "Lazy evaluation for streaming statistics",
+    "group": "tooling",
+    "summary": "Trace lazy filtering and a running mean through six source values, then compare reported throughput when a consumer stops early.",
+    "source": {
+      "title": "Iterflow: Composable Streaming Statistics for JavaScript",
+      "url": "https://doi.org/10.5281/zenodo.18610143",
+      "support": "https://github.com/mathscapes/iterflow/blob/main/papers/v1/paper.tex"
+    },
+    "scope": "The source trace is a computed six-value example. The throughput chart reproduces reported manuscript benchmarks; these were not rerun. This is one of four portfolio perspectives on the same paper.",
+    "sections": [
+      {
+        "title": "Source trace",
+        "text": "The source [4, 7, 5, 9, 6, 8] passes through filter(x > 5), streamingMean() and take(3). The consumer receives [7, 8, 22/3]. Only five source values are read; the final 8 remains unread."
+      },
+      {
+        "title": "Memory requirements",
+        "text": "Scalar online estimators retain constant-size state. Sliding windows retain O(k) values. Collecting outputs and computing a median can require O(n) storage."
+      },
+      {
+        "title": "Reported throughput",
+        "text": "With take(1000), Iterflow reports 69,268 versus 1,538,911 operations/s for an eager array chain at N = 100, and 7,818 versus 26 at N = 1,000,000. Early termination reduces work; generator overhead can dominate when all inputs are needed."
+      },
+      {
+        "title": "Benchmark limitations",
+        "text": "Results use synthetic data on Node 22 and ARM64 Linux. They were not rerun. Algorithms, variance denominators and implementation choices differ across some comparisons."
+      }
+    ],
+    "paper": "A1",
+    "orientation": "portrait",
+    "sizeMM": [
+      594,
+      841
+    ],
+    "pages": 1,
+    "study": "Iterflow streaming statistics",
+    "previewWidth": 594,
+    "previewHeight": 841
+  },
+  {
+    "slug": "score-before-you-update",
+    "title": "Anomaly scoring before the baseline update",
+    "group": "tooling",
+    "summary": "A single-page research infographic with the study context, methods, evidence and limitations. Why the ordering of an online anomaly detector changes its answer.",
+    "source": {
+      "title": "Iterflow: Composable Streaming Statistics for JavaScript",
+      "url": "https://doi.org/10.5281/zenodo.18610143",
+      "support": "https://github.com/mathscapes/iterflow/blob/main/papers/v1/paper.tex"
+    },
+    "scope": "This is a worked arithmetic example, not an anomaly benchmark or a fitted detector. This is one of four portfolio perspectives on the same paper.",
+    "sections": [
+      {
+        "title": "The question",
+        "text": "Should a new point help define the baseline used to score itself? Iterflow uses prior observations for its streaming z-score, so scoring precedes updating."
+      },
+      {
+        "title": "Worked result",
+        "text": "The historical sequence 9, 10, 11, 10 has mean 10 and population variance 0.5. A new value of 14 receives z = (14 \u2212 10) / \u221a0.5 = 5.6569. If 14 enters the baseline first, the mean becomes 10.8 and variance 2.96, giving z \u2248 1.8600."
+      },
+      {
+        "title": "Practical reading",
+        "text": "The score measures distance in units of historical standard deviation. It is not a probability or proof of a fault. Thresholds need to reflect the process, noise, and cost of false alarms."
+      },
+      {
+        "title": "Edge cases",
+        "text": "The documented implementation yields NaN for its first two observations. A constant history has zero spread, so a production workflow must explicitly handle undefined or infinite scores. Missing values and nonstationary signals also require a deliberate policy."
+      },
+      {
+        "title": "Compare like with like",
+        "text": "Both number lines use the same scale. Vertical markers show the mean, horizontal intervals span one standard deviation in each direction, and dots mark the same new value, 14. Including the point first reduces its score by about 67%. The intervals illustrate spread without assuming a normal distribution."
+      }
+    ],
+    "paper": "A2",
+    "orientation": "portrait",
+    "sizeMM": [
+      420,
+      594
+    ],
+    "pages": 1,
+    "study": "Iterflow streaming statistics",
+    "previewWidth": 420,
+    "previewHeight": 594
+  },
+  {
+    "slug": "reading-deformation-modes",
+    "title": "Deformation modes in eight image clusters",
+    "group": "figures",
+    "summary": "Map eight image clusters to four named deformation mechanisms and three developing states, with unrecovered reference modes identified.",
+    "source": {
+      "title": "Automated detection of deformation mechanisms in re-entrant honeycomb auxetics using machine learning",
+      "url": "https://doi.org/10.1177/20414196241281069",
+      "support": "https://www.researchgate.net/publication/384887896_Automated_detection_of_deformation_mechanisms_in_re-entrant_honeycomb_auxetics_using_machine_learning"
+    },
+    "scope": "An original crosswalk of reported category relationships. Small motifs are mnemonic labels, not recovered meshes or stress and strain fields. This is one of two portfolio perspectives on the same paper.",
+    "sections": [
+      {
+        "title": "Cluster-to-mode mapping",
+        "text": "The manuscript interprets C0 as V, C1 as X, C2 as V + Z + V, and C3 and C4 as distorted X. C5, C6 and C7 contain developing plastic hinges without mature mode assignments."
+      },
+      {
+        "title": "Three distinct counts",
+        "text": "Eight image clusters include five mode-associated clusters, which represent four distinct detected modes. The y and horizontal V modes are not detected. Image clusters and mechanical categories therefore have different denominators."
+      },
+      {
+        "title": "A quantitative atlas",
+        "text": "Comparing mechanical fields would require source meshes, shared geometry and field scales, physical units, and load or time indices. This crosswalk encodes category relationships only."
+      }
+    ],
+    "paper": "A2",
+    "orientation": "landscape",
+    "sizeMM": [
+      594,
+      420
+    ],
+    "pages": 1,
+    "study": "Auxetic deformation study",
+    "previewWidth": 594,
+    "previewHeight": 420
+  },
+  {
+    "slug": "anatomy-of-online-variance",
+    "title": "Updating variance without storing the data",
+    "group": "figures",
+    "summary": "A geometric derivation of the online variance update, using [4, 7, 5] and exact squared-deviation areas.",
+    "source": {
+      "title": "Iterflow: Composable Streaming Statistics for JavaScript",
+      "url": "https://doi.org/10.5281/zenodo.18610143",
+      "support": "https://github.com/mathscapes/iterflow/blob/main/papers/v1/paper.tex"
+    },
+    "scope": "An original mathematical explanation using [4, 7, 5]. The underlying recurrence is documented in the Iterflow manuscript. This is one of four portfolio perspectives on the same paper.",
+    "sections": [
+      {
+        "title": "State before the update",
+        "text": "After 4 and 7, n = 2, the mean is 5.5, and the sum of squared deviations from that mean is 4.5. The next observation is 5."
+      },
+      {
+        "title": "Why two residuals appear",
+        "text": "The mean moves when the new point arrives. Welford\u2019s update multiplies the residual from the old mean by the residual from the new mean: M\u2082\u2032 = M\u2082 + (x \u2212 \u03bc)(x \u2212 \u03bc\u2032). The new count is used when updating \u03bc."
+      },
+      {
+        "title": "Check independently",
+        "text": "For [4, 7, 5], the exact mean is 16/3. The squared deviations sum to 14/3. Dividing by three gives population variance 14/9 \u2248 1.5556, matching the streaming calculation."
+      },
+      {
+        "title": "What the denominator means",
+        "text": "Population variance describes the observations themselves. Sample variance uses n \u2212 1 when estimating a population variance under the relevant sampling assumptions. The two quantities should not be compared as if they were identical."
+      }
+    ],
+    "paper": "A2",
+    "orientation": "landscape",
+    "sizeMM": [
+      594,
+      420
+    ],
+    "pages": 1,
+    "study": "Iterflow streaming statistics",
+    "previewWidth": 594,
+    "previewHeight": 420
+  },
+  {
+    "slug": "the-memory-of-a-smoother",
+    "title": "EWMA response, memory and noise",
+    "group": "figures",
+    "summary": "Compare EWMA step response, past-input weights, settling time and theoretical noise attenuation.",
+    "source": {
+      "title": "Iterflow: Composable Streaming Statistics for JavaScript",
+      "url": "https://doi.org/10.5281/zenodo.18610143",
+      "support": "https://github.com/mathscapes/iterflow/blob/main/papers/v1/paper.tex"
+    },
+    "scope": "Computed response to a step from 2 to 8, shown over 16 updates. Weight strips describe infinite steady-state history; noise ratios assume independent input noise. This is one of four portfolio perspectives on the same paper.",
+    "sections": [
+      {
+        "title": "A controlled comparison",
+        "text": "Both smoothers begin at the first observation, 2, and receive the same signal. Only alpha changes. This isolates the effect of the weighting parameter."
+      },
+      {
+        "title": "The recurrence",
+        "text": "At each step s\u209c = \u03b1x\u209c + (1 \u2212 \u03b1)s\u209c\u208b\u2081. Alpha 0.7 puts 70% of the update weight on the current observation, while alpha 0.2 puts 20% there. The remainder belongs to the previous smoothed estimate."
+      },
+      {
+        "title": "Step response",
+        "text": "The first outputs after the step are 6.2 for alpha 0.7 and 3.2 for alpha 0.2. The figure shows 16 updates. Reaching 95% of the step takes 3 and 14 updates, respectively."
+      },
+      {
+        "title": "Choose for the task",
+        "text": "A step input reveals response time, not noise-rejection performance. Use representative noisy signals and a stated objective before choosing a parameter for monitoring or control. These examples do not establish an optimal alpha."
+      },
+      {
+        "title": "Quantifying memory",
+        "text": "The weight of an observation k steps ago is \u03b1(1 \u2212 \u03b1)^k. After a step, the remaining gap decreases by (1 \u2212 \u03b1) each update. Reaching at least 95% of the step change therefore takes 14 updates for alpha 0.2 and 3 for alpha 0.7. These are calculated response times for the stated example, not measured runtime performance."
+      }
+    ],
+    "paper": "A1",
+    "orientation": "landscape",
+    "sizeMM": [
+      841,
+      594
+    ],
+    "pages": 1,
+    "study": "Iterflow streaming statistics",
+    "previewWidth": 841,
+    "previewHeight": 594
+  }
+]

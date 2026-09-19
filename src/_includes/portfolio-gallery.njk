@@ -1,0 +1,11 @@
+<div class="portfolio-gallery" aria-label="{{ galleryLabel }}">
+  {% for piece in portfolio %}{% if piece.group == galleryGroup %}
+  <figure class="portfolio-preview">
+    <a href="/assets/portfolio/{{ piece.slug }}.pdf" aria-label="Open {{ piece.title }} (single-page PDF)">
+      <img src="/assets/portfolio/{{ piece.slug }}-1.webp" alt="" width="{{ piece.previewWidth }}" height="{{ piece.previewHeight }}" loading="lazy" decoding="async">
+      <span class="portfolio-title">{{ piece.title }}</span>
+    </a>
+    <figcaption><span>PDF</span><span aria-hidden="true">·</span><a href="/portfolio/{{ piece.slug }}/" aria-label="Details and sources for {{ piece.title }}">Details</a></figcaption>
+  </figure>
+  {% endif %}{% endfor %}
+</div>

@@ -1,0 +1,36 @@
+---
+layout: base.njk
+pagination:
+  data: portfolio
+  size: 1
+  alias: piece
+permalink: "/portfolio/{{ piece.slug }}/"
+eleventyComputed:
+  title: "{{ piece.title }}"
+  description: "{{ piece.summary }}"
+---
+<article class="portfolio-piece">
+  <p><a href="/#services">Back to services</a></p>
+  <h1>{{ piece.title }}</h1>
+  <p>{{ piece.summary }}</p>
+  <p class="profile-links"><a href="/assets/portfolio/{{ piece.slug }}.pdf" download>Download {{ piece.paper }} poster (PDF)</a><a href="{{ piece.source.url }}">Research paper</a></p>
+  <div class="portfolio-document" aria-label="Single-page research poster">
+    {% for number in [1] %}
+    <a href="/assets/portfolio/{{ piece.slug }}.pdf#page={{ number }}" aria-label="Open page {{ number }} of {{ piece.title }} as a PDF">
+      <img src="/assets/portfolio/{{ piece.slug }}-{{ number }}.webp" alt="Page {{ number }}: {% if number == 1 %}visual explanation{% else %}methods, evidence and interpretation{% endif %}. Text explanation follows." width="{% if number == 1 %}{{ piece.previewWidth }}{% else %}297{% endif %}" height="{% if number == 1 %}{{ piece.previewHeight }}{% else %}420{% endif %}" decoding="async">
+    </a>
+    {% endfor %}
+  </div>
+  <p class="portfolio-scope">{{ piece.scope }}</p>
+  {% for section in piece.sections %}
+  <section>
+    <h2>{{ section.title }}</h2>
+    <p>{{ section.text }}</p>
+  </section>
+  {% endfor %}
+  <section>
+    <h2>Source</h2>
+    <p><a href="{{ piece.source.url }}">{{ piece.source.title }}</a></p>
+    <p><a href="{{ piece.source.support }}">Supporting source</a>. Original visual explanation by Mathscapes. Research findings and illustrative calculations are identified above.</p>
+  </section>
+</article>

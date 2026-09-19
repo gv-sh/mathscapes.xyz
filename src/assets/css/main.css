@@ -254,3 +254,34 @@ a.author-badge { cursor: pointer; }
 @media (max-width: 540px) {
     .person-heading { flex-wrap: wrap; gap: 0.25em 0.75em; }
 }
+
+/* Compact service disclosures with downloadable research briefs. */
+.services-intro { color: var(--muted); }
+.service-option { margin: 0.4em 0; }
+.service-option summary { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25em 1em; padding: 0.6em 0; cursor: pointer; list-style: none; }
+.service-option summary::-webkit-details-marker { display: none; }
+.service-option summary::before { content: "+"; color: var(--link-color); width: 1em; flex: none; }
+.service-option[open] summary::before { content: "−"; }
+.service-option summary:focus-visible { outline: 2px solid var(--link-color); outline-offset: 3px; }
+.service-count { color: var(--muted); margin-left: auto; }
+.service-content { padding: 0.75em 0 1em; }
+.portfolio-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1em; margin: 1.25em 0; }
+.portfolio-preview { margin: 0; min-width: 0; }
+.portfolio-preview a { display: block; }
+.portfolio-preview img { display: block; width: 100%; height: auto; aspect-ratio: auto; box-shadow: 0 2px 8px #00000014; }
+.portfolio-preview .portfolio-title { display: block; margin-top: 0.6em; font-size: 0.8em; line-height: 1.35; }
+.portfolio-preview figcaption { display: flex; gap: 0.45em; align-items: baseline; margin-top: 0.35em; font-size: 0.7em; line-height: 1.4; color: var(--muted); }
+.portfolio-preview figcaption a { color: var(--muted); }
+.portfolio-piece > h1 { margin-bottom: 0.75em; }
+.portfolio-piece > .profile-links { margin: 1.25em 0 2em; }
+.portfolio-document { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1em; margin-bottom: 1.5em; }
+.portfolio-document img { display: block; width: 100%; height: auto; }
+.portfolio-scope { color: var(--muted); }
+@media (max-width: 540px) {
+    .service-count { flex-basis: 100%; margin-left: 2em; }
+    .portfolio-gallery { grid-template-columns: minmax(0, 1fr); gap: 1.5em; }
+    .portfolio-preview > a { display: grid; grid-template-columns: 90px minmax(0, 1fr); align-items: center; gap: 1em; }
+    .portfolio-preview .portfolio-title { margin: 0; }
+    .portfolio-preview figcaption { margin-top: 0.35em; }
+    .portfolio-document { grid-template-columns: minmax(0, 1fr); }
+}

@@ -10,6 +10,9 @@ eleventyExcludeFromCollections: true
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  {% for piece in portfolio %}
+  <url><loc>{{ site.url }}/portfolio/{{ piece.slug }}/</loc></url>
+  {% endfor %}
   {%- for person in collections.people %}
   <url>
     <loc>{{ site.url }}{{ person.url }}</loc>
