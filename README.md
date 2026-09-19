@@ -6,7 +6,7 @@ npm run build
 npm run dev
 ```
 
-The homepage uses React, rendered to static HTML by Eleventy and hydrated in the browser. Profile and portfolio detail pages remain static. The approved layout is implemented in `ui/App.jsx` and `ui/site.css`; `lib/home-data.js` derives publications from the contributor profiles.
+The homepage uses React, rendered to static HTML by Eleventy and hydrated in the browser. Profile and portfolio detail pages remain static. The approved layout is implemented in `ui/App.jsx` and `ui/site.css`; `lib/home-data.js` derives publications from the contributor profiles. Only records explicitly marked `mathscapes: true` appear on the homepage, in Machine mode, and in the text indexes. Set that flag only when the work has a Mathscapes affiliation; unmarked publications remain on personal profiles.
 
 `npm run dev` watches both React and Eleventy sources. `npm test` runs the Playwright checks (local Chrome on macOS; install Chromium with `npx playwright install chromium` elsewhere). The Human/Machine switch exposes the same research as a copyable text index at `/research.txt`.
 

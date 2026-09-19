@@ -25,12 +25,11 @@ eleventyExcludeFromCollections: true
 {% endfor %}
 ## Publications
 
-Peer-reviewed and self-published works. Each entry links to its DOI/permanent record; please cite the linked version.
+Works affiliated with Mathscapes. Full personal publication lists are available on the contributor profiles.
 {% for person in collections.people %}
-### {{ person.data.name | safe }}
-{% for p in person.data.publications -%}
+{% for p in person.data.publications %}{% if p.mathscapes %}
 - [{{ p.title | safe }}]({{ p.url }}), {{ p.authors | stripTags | safe }}. {{ p.venue | safe }}, {{ p.year }}.
-{% endfor %}
+{% endif %}{% endfor %}
 {% endfor -%}
 ## About
 

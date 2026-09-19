@@ -12,11 +12,19 @@ test('approved layout, filters, research, modes and existing links',async({page,
     await page.getByRole('button',{name:label,exact:true}).click();
     await expect(page.locator('.portfolio-card')).toHaveCount(count);
   }
-  await expect(page.locator('.publication-row')).toHaveCount(4);
-  await page.getByRole('button',{name:/All publications/}).click();
-  expect(await page.locator('.publication-row').count()).toBeGreaterThan(4);
-  await page.getByRole('button',{name:'Fewer publications'}).click();
-  await expect(page.locator('.publication-row')).toHaveCount(4);
+  await expect(page.locator('.publication-row')).toHaveCount(3);
+  await expect(page.locator('body')).not.toContainText('↗');
+  await expect(page.locator('#publications')).not.toContainText('scutoid');
+  await expect(page.locator('#publications')).not.toContainText('ReRide');
+  const personal=await (await request.get('/people/rahul-singh-dhari/')).text();
+  expect(personal).toContain('scutoid-based');
+  const machineIndex=await (await request.get('/research.txt')).text();
+  const llms=await (await request.get('/llms.txt')).text();
+  for(const text of [machineIndex,llms]){
+    expect(text).not.toContain('scutoid-based');
+    expect(text).not.toContain('ReRide');
+    expect(text).toContain('ae7df3');
+  }
   const paths=await page.locator('a[href^="/"]').evaluateAll(links=>[...new Set(links.map(a=>a.getAttribute('href')))]);
   for(const path of paths)expect((await request.get(path)).ok(),path).toBeTruthy();
   await context.grantPermissions(['clipboard-read','clipboard-write']);

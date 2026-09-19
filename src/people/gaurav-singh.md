@@ -24,6 +24,7 @@ publications:
     venue: "Machine Learning: Engineering (IOP Publishing)"
     year: 2026
     url: "https://doi.org/10.1088/3049-4761/ae7df3"
+    mathscapes: true
   - title: "Techno-economic pathways modeling and nonlinear optimized SEEA-ROI longitudinal dynamic simulation for decarbonising Australian heavy transportation systems"
     authors: "<strong>Gaurav Singh</strong>, Elizabeth Chang, Yeliz Karaca"
     venue: "Fractals"
@@ -34,11 +35,13 @@ publications:
     venue: "Mathscapes (Zenodo)"
     year: 2026
     url: "https://doi.org/10.5281/zenodo.18610143"
+    mathscapes: true
   - title: "Automated detection of deformation mechanisms in re-entrant honeycomb auxetics using machine learning"
     authors: "<strong>Gaurav Singh</strong>, R. S. Dhari, Zia Javanbakht"
     venue: "International Journal of Protective Structures"
     year: 2024
     url: "https://doi.org/10.1177/20414196241281069"
+    mathscapes: true
   - title: "ReRide: A Bike Area Network for Embodied Self-monitoring during Motorbike Commute"
     authors: "Naveen L. Bagalkot, <strong>Gaurav Singh</strong>, Vineeta Rath, Tomas Sokoler, Anchit Shukla"
     venue: "TEI '19, Tangible, Embedded, and Embodied Interaction"
