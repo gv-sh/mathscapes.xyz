@@ -1,0 +1,21 @@
+{
+  "https://doi.org/10.1088/3049-4761/ae7df3": {
+    "image": "visual-mathematical-literacy.webp",
+    "width": 778,
+    "height": 1100,
+    "pdf": "https://iopscience.iop.org/article/10.1088/3049-4761/ae7df3/pdf#page=2"
+  },
+  "https://doi.org/10.5281/zenodo.18610143": {
+    "image": "iterflow.webp",
+    "width": 778,
+    "height": 1100,
+    "pdf": "https://zenodo.org/records/18610143/files/Iterflow2026_v1-r2.pdf"
+  },
+  "https://doi.org/10.1177/20414196241281069": {
+    "image": "auxetic-deformation.webp",
+    "width": 850,
+    "height": 1100,
+    "pdf": "https://www.researchgate.net/profile/Rahul-Dhari/publication/384887896_Automated_detection_of_deformation_mechanisms_in_re-entrant_honeycomb_auxetics_using_machine_learning/links/6996a9327247bc6473e1a323/Automated-detection-of-deformation-mechanisms-in-re-entrant-honeycomb-auxetics-using-machine-learning.pdf",
+    "version": "Accepted manuscript"
+  }
+}

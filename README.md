@@ -6,15 +6,13 @@ npm run build
 npm run dev
 ```
 
-The homepage uses React, rendered to static HTML by Eleventy and hydrated in the browser. Profile and portfolio detail pages remain static. The approved layout is implemented in `ui/App.jsx` and `ui/site.css`; `lib/home-data.js` derives publications from the contributor profiles. Only records explicitly marked `mathscapes: true` appear on the homepage, in Machine mode, and in the text indexes. Set that flag only when the work has a Mathscapes affiliation; unmarked publications remain on personal profiles.
+The homepage uses React, rendered to static HTML by Eleventy and hydrated in the browser. Profile and portfolio detail pages remain static. The approved layout is implemented in `ui/App.jsx` and `ui/site.css`; `lib/home-data.js` derives publications from the contributor profiles. Only records explicitly marked `mathscapes: true` appear on the homepage, and in the text indexes. Set that flag only when the work has a Mathscapes affiliation; unmarked publications remain on personal profiles.
 
-`npm run dev` watches both React and Eleventy sources. `npm test` runs the Playwright checks (local Chrome on macOS; install Chromium with `npx playwright install chromium` elsewhere). The Human/Machine switch exposes the same research as a copyable text index at `/research.txt`.
+`npm run dev` watches both React and Eleventy sources. `npm test` runs the Playwright checks (local Chrome on macOS; install Chromium with `npx playwright install chromium` elsewhere). A plain-text research index remains available at `/research.txt`.
 
 The website is built with Eleventy. Portfolio PDFs and their finished WebP previews live in `src/assets/portfolio/`; titles and supporting text live in `src/_data/portfolio.json`.
 
-## Contour field
-
-`ui/contour-renderer.js` draws a single WebGL2 triangle with procedural contour lines. Rendering is capped at 30 updates per second and 1.5× pixel density, suspended off-screen or in hidden tabs, and static by default for reduced-motion preferences. The visible Play/Pause control (also keyboard accessible) allows explicit opt-in to animation. `ui/ContourField.jsx` supplies the matching equation in Machine mode; `src/assets/contour-field.svg` remains visible without JavaScript. When WebGL is unavailable or its context is lost, an animated Canvas 2D renderer traces the same field. No graphics library or external assets are required.
+A compact masthead pairs the Mathscapes wordmark with its tagline; the rest of the homepage is a full-width work grid. The homepage combines six selected examples and three research papers in one Work grid, with All, ML, Figures and Research filters. Publication previews live in `src/assets/publications/`, with DOI-keyed image dimensions and external PDF links in `src/_data/publicationPreviews.json`. They show the opening article page: page 2 of the IOP download (after its cover), page 1 of the Zenodo Iterflow paper, and page 1 of the auxetics accepted manuscript. Publication titles link to their DOI records; preview tiles link to the PDFs. Personal publication lists are unchanged. These are finished WebP assets, so building the website does not require a PDF renderer.
 
 ## Research poster sources
 

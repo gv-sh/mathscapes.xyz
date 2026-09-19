@@ -15,9 +15,11 @@
 }
 
 :root {
+  --text-size: 16px;
+  font-size: var(--text-size);
     --width: 704px;
     --font-family: "Inter Variable", Inter, system-ui, sans-serif;
-    --line-height: 1.65;
+    --line-height: 1.6;
     --letter-spacing: normal;
     --bg-color: #fff;
     --text-color: #222;
@@ -38,15 +40,15 @@
 /* One typography rhythm throughout every page. */
 *, *::before, *::after {
     box-sizing: border-box;
-    font-size: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
+    font-size: var(--text-size);
+    line-height: var(--line-height);
+    letter-spacing: normal;
 }
 
 
 body {
     font-family: var(--font-family);
-    font-size: 17px;
+    font-size: var(--text-size);
     font-weight: 400;
     font-optical-sizing: auto;
     font-kerning: normal;
@@ -57,7 +59,7 @@ body {
     max-width: var(--width);
     text-align: left;
     line-height: var(--line-height);
-    letter-spacing: var(--letter-spacing);
+    letter-spacing: normal;
     color: var(--text-color);
     background-color: var(--bg-color);
     word-wrap: break-word;
@@ -67,7 +69,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family);
-    font-size: inherit;
+    font-size: var(--text-size);
     font-weight: 600;
     color: var(--heading-color);
     text-wrap: balance;
@@ -201,7 +203,7 @@ main > h1 { margin-bottom: 1.5em; }
 .person { margin-top: 0.5em; }
 .person-bio { margin-top: 0.85em; margin-bottom: 0.85em; }
 .tag-row { display: flex; flex-wrap: wrap; gap: 0.4em; margin-bottom: 1em; }
-.tag { padding: 0.05em 0.5em; border: 1px solid color-mix(in srgb, currentColor 25%, transparent); }
+.tag { padding: 0.05em 0.5em; border: 0; }
 .pub-summary { display: flex; flex-wrap: wrap; gap: 0.5em 1.5em; margin: 1.25em 0; }
 .pub-year-group { display: grid; grid-template-columns: 3em minmax(0, 1fr); gap: 1em; }
 .pub-year-label { padding-top: 0; }
@@ -220,7 +222,7 @@ main > h1 { margin-bottom: 1.5em; }
 .pub-details { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4em 0.75em; margin-top: 0.4em; }
 .pub-venue { min-width: 0; color: var(--muted); }
 .pub-authors { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35em; }
-.author-badge { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; width: 24px; height: 24px; border-radius: 3px; background: var(--badge-background); color: var(--badge-ink); font-size: 12px; line-height: 1; font-weight: 600; cursor: default; }
+.author-badge { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; min-width: 32px; height: 32px; padding-inline: 4px; border-radius: 3px; background: var(--badge-background); color: var(--badge-ink); font-size: var(--text-size); line-height: var(--line-height); font-weight: 600; cursor: default; }
 a.author-badge { cursor: pointer; }
 .author-badge:visited, .author-badge:hover { color: var(--badge-ink); }
 .author-badge:focus-visible { outline: 2px solid var(--link-color); outline-offset: 3px; }
@@ -234,7 +236,7 @@ a.author-badge { cursor: pointer; }
 
 .contributor-list { display: flex; flex-wrap: wrap; gap: 0.75em 2em; }
 .contributor-link { display: inline-flex; align-items: center; gap: 0.65em; }
-.contributor-identicon { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; width: 24px; height: 24px; overflow: hidden; border-radius: 3px; background: var(--badge-background); color: var(--badge-ink); font-size: 12px; line-height: 1; font-weight: 600; }
+.contributor-identicon { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; min-width: 32px; height: 32px; padding-inline: 4px; overflow: hidden; border-radius: 3px; background: var(--badge-background); color: var(--badge-ink); font-size: var(--text-size); line-height: var(--line-height); font-weight: 600; }
 .contributor-identicon svg { display: block; width: 100%; height: 100%; }
 .person > .cta-wrapper { margin: 1em 0; }
 .person-heading {
@@ -268,9 +270,9 @@ a.author-badge { cursor: pointer; }
 .portfolio-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1em; margin: 1.25em 0; }
 .portfolio-preview { margin: 0; min-width: 0; }
 .portfolio-preview a { display: block; }
-.portfolio-preview img { display: block; width: 100%; height: auto; aspect-ratio: auto; box-shadow: 0 2px 8px #00000014; }
-.portfolio-preview .portfolio-title { display: block; margin-top: 0.6em; font-size: 0.8em; line-height: 1.35; }
-.portfolio-preview figcaption { display: flex; gap: 0.45em; align-items: baseline; margin-top: 0.35em; font-size: 0.7em; line-height: 1.4; color: var(--muted); }
+.portfolio-preview img { display: block; width: 100%; height: auto; aspect-ratio: auto; box-shadow: none; }
+.portfolio-preview .portfolio-title { display: block; margin-top: 0.6em; font-size: var(--text-size); line-height: var(--line-height); }
+.portfolio-preview figcaption { display: flex; gap: 0.45em; align-items: baseline; margin-top: 0.35em; font-size: var(--text-size); line-height: var(--line-height); color: var(--muted); }
 .portfolio-preview figcaption a { color: var(--muted); }
 .portfolio-piece > h1 { margin-bottom: 0.75em; }
 .portfolio-piece > .profile-links { margin: 1.25em 0 2em; }
