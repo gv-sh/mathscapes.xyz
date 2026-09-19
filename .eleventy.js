@@ -14,6 +14,7 @@ module.exports = function(eleventyConfig) {
   
   // Watch CSS files for changes
   eleventyConfig.addWatchTarget("src/assets/css/");
+  eleventyConfig.addWatchTarget(".cache/render-home.cjs");
   
   // Collections
   eleventyConfig.addCollection("posts", function(collection) {
@@ -151,7 +152,7 @@ module.exports = function(eleventyConfig) {
     },
     
     // Template formats to process
-    templateFormats: ["md", "njk", "html"],
+    templateFormats: ["md", "njk", "html", "11ty.js"],
     
     // Use Nunjucks for markdown and HTML files
     markdownTemplateEngine: "njk",

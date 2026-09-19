@@ -48,3 +48,8 @@ coverage/
 # Cache directories
 .cache/
 .parcel-cache/
+
+# Generated React assets and browser test output
+src/assets/ui/
+test-results/
+playwright-report/

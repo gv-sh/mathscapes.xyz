@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "description": "Mathscapes company website",
   "scripts": {
-    "build": "eleventy",
-    "dev": "eleventy --serve --watch",
+    "build": "node scripts/build-ui.mjs && eleventy",
+    "dev": "node scripts/dev.mjs",
     "clean": "rm -rf _site",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "test": "playwright test"
   },
   "author": "Mathscapes",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "@playwright/test": "^1.63.0",
+    "esbuild": "^0.28.2"
   },
   "dependencies": {
-    "@11ty/eleventy-plugin-rss": "^1.2.0"
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   }
 }

@@ -7,11 +7,11 @@
     <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/ms_light.png">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 
     <!-- CSS -->
     <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/main.css?v=20260919-single-page-posters">
+    {% if modernHome %}<link rel="stylesheet" href="/assets/ui/home.css">{% else %}<link rel="stylesheet" href="/assets/css/main.css?v=20260919-single-page-posters">{% endif %}
 
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
@@ -53,6 +53,7 @@
     </script>
 </head>
 <body>
+    {% if modernHome %}{{ content | safe }}{% else %}
     <header class="site-header">
       <a class="site-brand" href="/" aria-label="Mathscapes home">
         <img src="/assets/ms_light.png" alt="Mathscapes" class="site-logo site-logo--light">
@@ -63,6 +64,7 @@
         {{ content | safe }}
     </main>
     {% include "footer.njk" %}
+    {% endif %}
 
 </body>
 </html>

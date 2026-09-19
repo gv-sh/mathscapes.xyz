@@ -6,6 +6,10 @@ npm run build
 npm run dev
 ```
 
+The homepage uses React, rendered to static HTML by Eleventy and hydrated in the browser. Profile and portfolio detail pages remain static. The approved layout is implemented in `ui/App.jsx` and `ui/site.css`; `lib/home-data.js` derives publications from the contributor profiles.
+
+`npm run dev` watches both React and Eleventy sources. `npm test` runs the Playwright checks (local Chrome on macOS; install Chromium with `npx playwright install chromium` elsewhere). The Human/Machine switch exposes the same research as a copyable text index at `/research.txt`.
+
 The website is built with Eleventy. Portfolio PDFs and their finished WebP previews live in `src/assets/portfolio/`; titles and supporting text live in `src/_data/portfolio.json`.
 
 ## Research poster sources

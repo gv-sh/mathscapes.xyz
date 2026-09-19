@@ -34,11 +34,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Build with Eleventy
+      - name: Build website
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
