@@ -12,6 +12,10 @@ The homepage uses React, rendered to static HTML by Eleventy and hydrated in the
 
 The website is built with Eleventy. Portfolio PDFs and their finished WebP previews live in `src/assets/portfolio/`; titles and supporting text live in `src/_data/portfolio.json`.
 
+## Contour field
+
+`ui/contour-renderer.js` draws a single WebGL2 triangle with procedural contour lines. Rendering is capped at 30 updates per second and 1.5× pixel density, suspended off-screen or in hidden tabs, and static for reduced-motion preferences. Click or use Space/Enter to pause. `ui/ContourField.jsx` supplies the matching equation in Machine mode; `src/assets/contour-field.svg` remains visible without JavaScript or WebGL. No graphics library or external assets are required.
+
 ## Research poster sources
 
 PDF generation lives in the sibling repository [`mathscapes-publications`](../mathscapes-publications). This website has no Python, font-processing or chart-rendering build dependency.

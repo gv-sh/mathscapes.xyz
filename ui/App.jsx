@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
+import ContourField, {ContourDefinition} from './ContourField.jsx';
 
 export const services = [
   {title:'Applied ML & research tooling',text:'Models and analysis pipelines for engineering data, delivered as documented, tested software your team can keep.'},
@@ -27,7 +28,7 @@ function Portfolio({pieces,ready}) {
 function Human({data,ready}) {
   const pubs=data.publications;
   return <>
-    <section className="intro"><h1>Research, software<br/>and technical communication.</h1><div className="intro-bottom"><p>We build models, tools and visual explanations<br className="desktop-break"/> for research and engineering teams.</p><a className="contact-link" href={`mailto:${data.site.author.email}`}>Get in touch</a></div></section>
+    <section className="intro"><div className="intro-copy"><h1>Research, software<br/>and technical communication.</h1><div className="intro-bottom"><p>We build models, tools and visual explanations<br className="desktop-break"/> for research and engineering teams.</p><a className="contact-link" href={`mailto:${data.site.author.email}`}>Get in touch</a></div></div><ContourField/></section>
     <Portfolio pieces={data.portfolio} ready={ready}/>
     <section className="editorial-section" id="services"><h2>Services</h2><div className="service-list">{services.map(s=><div className="service-row" key={s.title}><h3>{s.title}</h3><p>{s.text}</p></div>)}</div></section>
     <section className="editorial-section" id="publications"><h2>Publications</h2><div className="publication-list">{pubs.map(p=><a className="publication-row" key={p.url} href={p.url}><span className="publication-year">{p.year}</span><div><h3>{p.title}</h3><p>{p.venue}</p></div></a>)}</div></section>
@@ -38,7 +39,7 @@ function Human({data,ready}) {
 function Machine({data}) {
   const [status,setStatus]=useState('');
   async function copy(){try{await navigator.clipboard.writeText(researchText(data));setStatus('Copied to clipboard.');}catch{setStatus('Copy unavailable. Use Download to save the index.');}}
-  return <section className="machine-index"><div className="machine-top"><h1>Mathscapes / index</h1><div><button onClick={copy}>Copy</button><a href="/research.txt" download>Download <span aria-hidden="true">↓</span></a></div></div><p role="status" className="copy-status">{status||'Plain text · sources and direct links included'}</p><pre tabIndex="0" aria-label="Machine-readable research index">{researchText(data)}</pre></section>;
+  return <section className="machine-index"><div className="machine-intro"><div><div className="machine-top"><h1>Mathscapes / index</h1><div><button onClick={copy}>Copy</button><a href="/research.txt" download>Download <span aria-hidden="true">↓</span></a></div></div><p role="status" className="copy-status">{status||'Plain text · sources and direct links included'}</p></div><ContourDefinition/></div><pre tabIndex="0" aria-label="Machine-readable research index">{researchText(data)}</pre></section>;
 }
 export default function App({data}) {
   const [mode,setMode]=useState('human');
