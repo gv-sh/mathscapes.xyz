@@ -2,11 +2,11 @@
 layout: person.njk
 title: Gaurav Singh
 name: Gaurav Singh
-description: "Publications by Gaurav Singh — founder of Mathscapes, working across mathematics, design, and machine learning."
-affiliation: Mathscapes Research
+description: "Publications by Gaurav Singh, founder of Mathscapes, working across mathematics, design, and machine learning."
+affiliation: Mathscapes
 bio: "Founder of Mathscapes, a design and research studio that makes mathematics visible and understandable. Works across generative design tools, streaming statistics, machine learning, and materials engineering."
-accent: "#e8590c"
-accent2: "#f9a825"
+accent: "#a66f5a"
+accent2: "#dcc2b4"
 tags:
   - Generative design
   - Machine learning
@@ -41,7 +41,7 @@ publications:
     url: "https://doi.org/10.1177/20414196241281069"
   - title: "ReRide: A Bike Area Network for Embodied Self-monitoring during Motorbike Commute"
     authors: "Naveen L. Bagalkot, <strong>Gaurav Singh</strong>, Vineeta Rath, Tomas Sokoler, Anchit Shukla"
-    venue: "TEI '19 — Tangible, Embedded, and Embodied Interaction"
+    venue: "TEI '19, Tangible, Embedded, and Embodied Interaction"
     year: 2019
     url: "https://doi.org/10.1145/3294109.3300986"
   - title: "ReRide: A platform to explore interaction with personal data before, during, and after motorcycle commuting"

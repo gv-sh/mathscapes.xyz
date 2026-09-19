@@ -1,7 +1,10 @@
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
-const crypto = require("crypto");
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addFilter("authorBadges", require("./lib/author-badges"));
+
+  eleventyConfig.addFilter("authorPalette", require("./lib/author-badges").paletteStyle);
+
   // Add RSS plugin
   eleventyConfig.addPlugin(rssPlugin);
   
@@ -30,55 +33,9 @@ module.exports = function(eleventyConfig) {
 
   // Deterministic Gravatar-style identicon (5x5 mirrored grid) as inline SVG,
   // seeded from a paper's DOI/title so each work gets a unique, stable thumbnail.
-  eleventyConfig.addFilter("identicon", function(seed) {
-    const hash = crypto.createHash("md5").update(String(seed || "seed")).digest("hex");
-    const hue = Math.round(parseInt(hash.substring(0, 2), 16) / 255 * 360);
-    const fill = "hsl(" + hue + ", 58%, 54%)";
-    let cells = "";
-    for (let col = 0; col < 3; col++) {
-      for (let row = 0; row < 5; row++) {
-        if (parseInt(hash.charAt(col * 5 + row), 16) % 2 === 0) {
-          cells += '<rect x="' + col + '" y="' + row + '" width="1" height="1"/>';
-          if (col < 2) cells += '<rect x="' + (4 - col) + '" y="' + row + '" width="1" height="1"/>';
-        }
-      }
-    }
-    return '<svg viewBox="-1 -1 7 7" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-hidden="true">' +
-      '<rect x="-1" y="-1" width="7" height="7" fill="#edecf2"/>' +
-      '<g fill="' + fill + '">' + cells + '</g></svg>';
-  });
+  eleventyConfig.addFilter("authorInitials", require("./lib/author-badges").initials);
 
-  // Wide identicon-style cover: same mirrored square-grid mosaic as the paper
-  // thumbnails, sized as a full-bleed banner and seeded from a contributor's name.
-  // Squares use currentColor so the page's accent colour applies.
-  eleventyConfig.addFilter("identiconCover", function(seed, color1, color2) {
-    seed = String(seed || "seed");
-    color1 = color1 || "currentColor";
-    color2 = color2 || color1;
-    const cols = 19, rows = 5, half = Math.ceil(cols / 2);
-    let hex = "", i = 0;
-    while (hex.length < half * rows) {
-      hex += crypto.createHash("md5").update(seed + "#" + i).digest("hex");
-      i++;
-    }
-    let a = "", b = "", k = 0;
-    for (let c = 0; c < half; c++) {
-      for (let r = 0; r < rows; r++) {
-        const n = parseInt(hex.charAt(k), 16);
-        if (n % 2 === 0) {
-          let rects = '<rect x="' + c + '" y="' + r + '" width="1" height="1"/>';
-          const mc = cols - 1 - c;
-          if (mc !== c) rects += '<rect x="' + mc + '" y="' + r + '" width="1" height="1"/>';
-          if ((n >> 1) % 2 === 0) { a += rects; } else { b += rects; }
-        }
-        k++;
-      }
-    }
-    return '<svg viewBox="0 0 ' + cols + ' ' + rows + '" preserveAspectRatio="xMidYMid slice" ' +
-      'xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-hidden="true">' +
-      '<g fill="' + color1 + '">' + a + '</g>' +
-      '<g fill="' + color2 + '">' + b + '</g></svg>';
-  });
+
 
   // Group a list of publications by year, newest year first
   eleventyConfig.addFilter("groupByYear", function(pubs) {

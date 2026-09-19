@@ -2,11 +2,11 @@
 layout: person.njk
 title: Rahul Singh Dhari
 name: Rahul Singh Dhari
-description: "Publications by Rahul Singh Dhari — materials and mechanical engineering researcher at Curtin University."
-affiliation: Materials &amp; mechanical engineering researcher, Curtin University, Australia
+description: "Publications by Rahul Singh Dhari, materials and mechanical engineering researcher at Curtin University."
+affiliation: Curtin University, Australia
 bio: "Researches auxetic metamaterials, cellular and bioinspired structures, additive manufacturing, and multiscale (Direct FE²) modelling. Collaborator with Mathscapes on machine learning for auxetic honeycombs."
-accent: "#0d9488"
-accent2: "#3bc9db"
+accent: "#668b83"
+accent2: "#bed2cc"
 tags:
   - Auxetic metamaterials
   - Cellular & bioinspired structures

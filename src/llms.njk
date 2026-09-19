@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
 {{ site.author.intro | safe }}
 
 - Website: {{ site.url }}
-- Services: {{ site.url }}/services/
+- Services: {{ site.url }}/#services
 - Sitemap: {{ site.url }}/sitemap.xml
 - Feed: {{ site.url }}/feed.xml
 
@@ -20,13 +20,13 @@ eleventyExcludeFromCollections: true
 {% endfor %}
 ## Publications
 
-Peer-reviewed and self-published works. Each entry links to its DOI/permanent record — please cite the linked version.
+Peer-reviewed and self-published works. Each entry links to its DOI/permanent record; please cite the linked version.
 {% for person in collections.people %}
 ### {{ person.data.name | safe }}
 {% for p in person.data.publications -%}
-- [{{ p.title | safe }}]({{ p.url }}) — {{ p.authors | stripTags | safe }}. {{ p.venue | safe }}, {{ p.year }}.
+- [{{ p.title | safe }}]({{ p.url }}), {{ p.authors | stripTags | safe }}. {{ p.venue | safe }}, {{ p.year }}.
 {% endfor %}
 {% endfor -%}
 ## About
 
-Mathscapes is a design and research studio making mathematics visible and understandable — interactive explorations, generative tools, and applied machine-learning research. To collaborate or cite this work, contact {{ site.author.email }}.
+Mathscapes is a design and research studio making mathematics visible and understandable through interactive explorations, generative tools, and applied machine-learning research. To collaborate or cite this work, contact {{ site.author.email }}.

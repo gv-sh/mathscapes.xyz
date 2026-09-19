@@ -2,45 +2,30 @@
 layout: base.njk
 ---
 
-<h1>
-  <a href="/">
-    <img src="/assets/ms_light.png" alt="{{ site.author.name }}" class="site-logo site-logo--light">
-    <img src="/assets/ms_dark.png" alt="{{ site.author.name }}" class="site-logo site-logo--dark">
-  </a>
-</h1>
-
 <div class="person" style="--accent: {{ accent or '#0000ee' }}">
 
-  <div class="person-motif" aria-hidden="true">
-    {{ name | identiconCover(accent or '#0000ee', accent2 or accent or '#0000ee') | safe }}
+  <div class="person-heading">
+    <h1 class="person-name">{{ name }}</h1>
+    {% if affiliation %}<span class="affiliation">{{ affiliation | safe }}</span>{% endif %}
   </div>
-
-  <h1 class="person-name">{{ name }}</h1>
-  {% if affiliation %}<p class="affiliation">{{ affiliation | safe }}</p>{% endif %}
 
   {% if bio %}<p class="person-bio">{{ bio | safe }}</p>{% endif %}
 
-  {% if tags %}
-  <div class="tag-row">
-    {% for t in tags %}<span class="tag">{{ t }}</span>{% endfor %}
-  </div>
-  {% endif %}
-
   {% if links %}
-  <div class="cta-wrapper">
+  <div class="cta-wrapper profile-links">
     {% for link in links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
   </div>
   {% endif %}
 
-  <div class="pub-summary">
-    <div class="stat">
-      <span class="stat-num">{{ publications | length }}</span>
-      <span class="stat-lbl">publications</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">{{ (publications | last).year }}&ndash;{{ (publications | first).year }}</span>
-      <span class="stat-lbl">active</span>
-    </div>
+  {% if tags %}
+  <div class="tag-row" aria-label="Areas of expertise">
+    {% for t in tags %}<span class="tag">{{ t }}</span>{% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="pub-summary" aria-label="Publication summary">
+    <span>{{ publications | length }} publications</span>
+    <span>{{ (publications | last).year }}&ndash;{{ (publications | first).year }} active</span>
   </div>
 
   <h2>Publications</h2>
@@ -52,11 +37,13 @@ layout: base.njk
       <div class="pub-year-items">
         {% for pub in group.items %}
         <div class="publication">
-          <div class="pub-thumb">{{ pub.url | identicon | safe }}</div>
+
           <div class="pub-info">
             {% if pub.url %}<a class="pub-title" href="{{ pub.url }}">{{ pub.title }}</a>{% else %}<span class="pub-title">{{ pub.title }}</span>{% endif %}
-            <div class="pub-meta pub-authors">{{ pub.authors | safe }}</div>
-            <div class="pub-meta">{{ pub.venue }}</div>
+            <div class="pub-details">
+              <div class="pub-venue">{{ pub.venue }}</div>
+              <div class="pub-authors" aria-label="Authors">{{ pub.authors | authorBadges | safe }}</div>
+            </div>
           </div>
         </div>
         {% endfor %}

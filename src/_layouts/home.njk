@@ -4,61 +4,86 @@ layout: base.njk
 
 {% include "intro.njk" %}
 
-{% include "cta.njk" %}
+{% include "services.njk" %}
+
 
 <div class="content-grid">
   <div class="main-col">
-    <h2>Publications</h2>
+    <h2 id="publications">Publications</h2>
 
-    <div class="publication">
-      <div class="pub-thumb">{{ "https://doi.org/10.1088/3049-4761/ae7df3" | identicon | safe }}</div>
-      <div class="pub-info">
-        <a class="pub-title" href="https://doi.org/10.1088/3049-4761/ae7df3">A framework for visual-mathematical literacy in applied machine learning: why representation choices shape what models can learn</a>
-        <div class="pub-meta"><a href="/people/gaurav-singh/">G. Singh</a>, <a href="/people/rahul-singh-dhari/">R. S. Dhari</a></div>
-        <div class="pub-meta">Machine Learning: Engineering</div>
+    <div class="pub-timeline">
+      <div class="pub-year-group">
+        <div class="pub-year-label">2026</div>
+        <div class="pub-year-items">
+          <div class="publication">
+
+            <div class="pub-info">
+              <a class="pub-title" href="https://doi.org/10.1088/3049-4761/ae7df3">A framework for visual-mathematical literacy in applied machine learning: why representation choices shape what models can learn</a>
+              <div class="pub-details">
+                <div class="pub-venue">Machine Learning: Engineering</div>
+                <div class="pub-authors" aria-label="Authors">{{ "G. Singh, R. S. Dhari" | authorBadges | safe }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="publication">
+
+            <div class="pub-info">
+              <a class="pub-title" href="https://doi.org/10.5281/zenodo.18610143">Iterflow: Composable Streaming Statistics for JavaScript</a>
+              <div class="pub-details">
+                <div class="pub-venue">Mathscapes</div>
+                <div class="pub-authors" aria-label="Authors">{{ "G. Singh" | authorBadges | safe }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <span class="pub-year">2026</span>
-    </div>
+      <div class="pub-year-group">
+        <div class="pub-year-label">2024</div>
+        <div class="pub-year-items">
+          <div class="publication">
 
-    <div class="publication">
-      <div class="pub-thumb">{{ "https://doi.org/10.5281/zenodo.18610143" | identicon | safe }}</div>
-      <div class="pub-info">
-        <a class="pub-title" href="https://doi.org/10.5281/zenodo.18610143">Iterflow: Composable Streaming Statistics for JavaScript</a>
-        <div class="pub-meta"><a href="/people/gaurav-singh/">G. Singh</a></div>
-        <div class="pub-meta">Mathscapes</div>
+            <div class="pub-info">
+              <a class="pub-title" href="https://doi.org/10.1177/20414196241281069">Automated detection of deformation mechanisms in re-entrant honeycomb auxetics using machine learning</a>
+              <div class="pub-details">
+                <div class="pub-venue">International Journal of Protective Structures</div>
+                <div class="pub-authors" aria-label="Authors">{{ "G. Singh, R. S. Dhari, Z. Javanbakht" | authorBadges | safe }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <span class="pub-year">2026</span>
-    </div>
+      <div class="pub-year-group">
+        <div class="pub-year-label">2021</div>
+        <div class="pub-year-items">
+          <div class="publication">
 
-    <div class="publication">
-      <div class="pub-thumb">{{ "https://doi.org/10.1177/20414196241281069" | identicon | safe }}</div>
-      <div class="pub-info">
-        <a class="pub-title" href="https://doi.org/10.1177/20414196241281069">Automated detection of deformation mechanisms in re-entrant honeycomb auxetics using machine learning</a>
-        <div class="pub-meta"><a href="/people/gaurav-singh/">G. Singh</a>, <a href="/people/rahul-singh-dhari/">R. S. Dhari</a>, Z. Javanbakht</div>
-        <div class="pub-meta">International Journal of Protective Structures</div>
+            <div class="pub-info">
+              <a class="pub-title" href="https://doi.org/10.1080/13588265.2020.1866859">On the crushing behaviour of scutoid-based bioinspired cellular structures</a>
+              <div class="pub-details">
+                <div class="pub-venue">International Journal of Crashworthiness</div>
+                <div class="pub-authors" aria-label="Authors">{{ "R. S. Dhari, N. P. Patel" | authorBadges | safe }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <span class="pub-year">2024</span>
     </div>
-
-    <div class="publication">
-      <div class="pub-thumb">{{ "https://doi.org/10.1080/13588265.2020.1866859" | identicon | safe }}</div>
-      <div class="pub-info">
-        <a class="pub-title" href="https://doi.org/10.1080/13588265.2020.1866859">On the crushing behaviour of scutoid-based bioinspired cellular structures</a>
-        <div class="pub-meta"><a href="/people/rahul-singh-dhari/">R. S. Dhari</a>, N. P. Patel</div>
-        <div class="pub-meta">International Journal of Crashworthiness</div>
-      </div>
-      <span class="pub-year">2021</span>
-    </div>
-
     {% if collections.posts.length > 0 %}
     <h2>Recent Posts</h2>
     {% include "post-list.njk" %}
     {% endif %}
   </div>
 
-  <aside class="side-col">
+  <section class="contributors">
     <h2>Contributors</h2>
-    <div class="coauthor-name"><a href="/people/gaurav-singh/">Gaurav Singh</a></div>
-    <div class="coauthor-name"><a href="/people/rahul-singh-dhari/">Rahul Singh</a></div>
-  </aside>
+    <div class="contributor-list">
+      {% for person in collections.people %}
+      <a class="contributor-link" href="{{ person.url }}">
+        <span class="contributor-identicon" style="{{ person.data.name | authorPalette }}" aria-hidden="true">{{ person.data.name | authorInitials }}</span>
+        <span>{{ person.data.name }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
 </div>
