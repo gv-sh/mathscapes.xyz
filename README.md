@@ -14,7 +14,7 @@ The website is built with Eleventy. Portfolio PDFs and their finished WebP previ
 
 ## Contour field
 
-`ui/contour-renderer.js` draws a single WebGL2 triangle with procedural contour lines. Rendering is capped at 30 updates per second and 1.5× pixel density, suspended off-screen or in hidden tabs, and static for reduced-motion preferences. Click or use Space/Enter to pause. `ui/ContourField.jsx` supplies the matching equation in Machine mode; `src/assets/contour-field.svg` remains visible without JavaScript or WebGL. No graphics library or external assets are required.
+`ui/contour-renderer.js` draws a single WebGL2 triangle with procedural contour lines. Rendering is capped at 30 updates per second and 1.5× pixel density, suspended off-screen or in hidden tabs, and static by default for reduced-motion preferences. The visible Play/Pause control (also keyboard accessible) allows explicit opt-in to animation. `ui/ContourField.jsx` supplies the matching equation in Machine mode; `src/assets/contour-field.svg` remains visible without JavaScript. When WebGL is unavailable or its context is lost, an animated Canvas 2D renderer traces the same field. No graphics library or external assets are required.
 
 ## Research poster sources
 

@@ -1,6 +1,7 @@
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addGlobalData("uiVersion", () => JSON.parse(require("node:fs").readFileSync(".cache/ui-version.json", "utf8")).version);
   eleventyConfig.addFilter("authorBadges", require("./lib/author-badges"));
 
   eleventyConfig.addFilter("authorPalette", require("./lib/author-badges").paletteStyle);
@@ -15,6 +16,7 @@ module.exports = function(eleventyConfig) {
   // Watch CSS files for changes
   eleventyConfig.addWatchTarget("src/assets/css/");
   eleventyConfig.addWatchTarget(".cache/render-home.cjs");
+  eleventyConfig.addWatchTarget(".cache/ui-version.json");
   
   // Collections
   eleventyConfig.addCollection("posts", function(collection) {

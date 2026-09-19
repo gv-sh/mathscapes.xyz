@@ -44,23 +44,46 @@ test('reduced motion stays static, including pointer movement',async({page})=>{
   await page.setViewportSize({width:390,height:844});
   await page.goto('/',{waitUntil:'domcontentloaded'});
   await expect(page.locator('.contour-field')).toHaveAttribute('data-renderer','static');
-  await expect(page.locator('.contour-surface')).toBeDisabled();
+  await expect(page.locator('.contour-surface')).toBeEnabled();
   await page.waitForTimeout(200);
   const frames=await page.evaluate(()=>window.shaderDraws);
   await page.mouse.move(180,480);
   await page.waitForTimeout(300);
   expect(await page.evaluate(()=>window.shaderDraws)).toBe(frames);
   await page.screenshot({path:'test-results/shader-mobile.png'});
+  await page.getByRole('button',{name:'Play animation',exact:true}).last().click();
+  await expect(page.locator('.contour-field')).toHaveAttribute('data-renderer','running');
+  const a=await page.locator('.contour-gpu').screenshot();
+  await page.waitForTimeout(500);
+  const b=await page.locator('.contour-gpu').screenshot();
+  expect(a.equals(b)).toBe(false);
+  await page.getByRole('button',{name:'Pause animation',exact:true}).last().click();
+  await expect(page.locator('.contour-field')).toHaveAttribute('data-renderer','paused');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
 });
-test('unavailable WebGL retains a visible static field',async({page})=>{
+test('unavailable WebGL uses a visibly animated canvas fallback',async({page})=>{
   await page.addInitScript(()=>{
     const original=HTMLCanvasElement.prototype.getContext;
     HTMLCanvasElement.prototype.getContext=function(type,...args){return type==='webgl2'?null:original.call(this,type,...args);};
   });
   await page.goto('/',{waitUntil:'domcontentloaded'});
-  await expect(page.locator('.contour-field')).toHaveAttribute('data-renderer','fallback');
-  await expect(page.locator('.contour-fallback')).toBeVisible();
-  await expect(page.locator('.contour-surface')).toBeDisabled();
+  await expect(page.locator('.contour-field')).toHaveAttribute('data-engine','canvas');
+  await expect(page.locator('.contour-field')).toHaveAttribute('data-renderer','running');
+  const a=await page.locator('.contour-cpu').screenshot();
+  await page.waitForTimeout(500);
+  const b=await page.locator('.contour-cpu').screenshot();
+  expect(a.equals(b)).toBe(false);
+  await page.getByRole('button',{name:'Pause animation',exact:true}).last().click();
+  await expect(page.locator('.contour-field')).toHaveAttribute('data-renderer','paused');
+  const c=await page.locator('.contour-cpu').screenshot();
+  await page.waitForTimeout(200);
+  expect(c.equals(await page.locator('.contour-cpu').screenshot())).toBe(true);
   expect(await page.evaluate(()=>window.shaderDraws)).toBe(0);
+});
+test('lost WebGL context switches to the animated fallback',async({page})=>{
+  await page.goto('/',{waitUntil:'domcontentloaded'});
+  await expect(page.locator('.contour-field')).toHaveAttribute('data-engine','webgl');
+  await page.locator('.contour-gpu').evaluate(el=>el.getContext('webgl2').getExtension('WEBGL_lose_context').loseContext());
+  await expect(page.locator('.contour-field')).toHaveAttribute('data-engine','canvas');
+  await expect(page.locator('.contour-field')).toHaveAttribute('data-renderer','running');
 });
