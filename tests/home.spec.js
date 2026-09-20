@@ -10,7 +10,7 @@ test('approved layout, filters, research and existing links',async({page,context
   await expect(page.locator('.home-header nav, .intro, #services, #people')).toHaveCount(0);
   await expect(page.locator('.portfolio-card')).toHaveCount(6);
   await expect(page.locator('.work-card')).toHaveCount(9);
-  for(const [label,count] of [['ML',3],['Figures',3],['Research',3],['All',9]]){
+  for(const [label,count] of [['Machine learning',4],['Streaming statistics',5],['Materials & mechanics',3],['All',9]]){
     await page.getByRole('button',{name:label,exact:true}).click();
     await expect(page.locator('.work-card')).toHaveCount(count);
   }
@@ -55,9 +55,9 @@ test('responsive previews and keyboard controls',async({page})=>{
     await page.evaluate(()=>scrollTo(0,0));
     await page.screenshot({path:`test-results/home-${width}.png`,fullPage:true});
   }
-  const filter=page.getByRole('button',{name:'ML',exact:true});
+  const filter=page.getByRole('button',{name:'Machine learning',exact:true});
   await filter.focus();await page.keyboard.press('Enter');
-  await expect(page.locator('.portfolio-card')).toHaveCount(3);
+  await expect(page.locator('.portfolio-card')).toHaveCount(2);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
 });
 test('static content and favicon work without JavaScript',async({browser,request})=>{
@@ -71,4 +71,42 @@ test('static content and favicon work without JavaScript',async({browser,request
   const response=await request.get(favicon);expect(response.ok()).toBeTruthy();
   expect(await response.text()).toContain('<svg');
   await context.close();
+});
+
+test('profile links and publication grids',async({page})=>{
+  await page.goto('/');
+  for(const [name,slug,count] of [['Gaurav Singh','gaurav-singh',7],['Rahul Singh Dhari','rahul-singh-dhari',19]]){
+    await page.getByRole('link',{name,exact:true}).click();
+    await expect(page).toHaveURL(new RegExp(`/people/${slug}/$`));
+    await expect(page.getByRole('heading',{level:1})).toHaveText(name);
+    await expect(page.locator('.publication-card')).toHaveCount(count);
+    await expect(page.locator('.publication-card .poster-stage img')).toHaveCount(count);
+    await expect(page.locator('.citation-stage')).toHaveCount(0);
+    const subjects=slug==='gaurav-singh'
+      ? [['Machine learning',2],['Streaming statistics',1],['Materials & mechanics',1],['Interaction design',3],['Transport & sustainability',1]]
+      : [['Machine learning',2],['Materials & mechanics',18]];
+    await expect(page.locator('[data-topic]')).toHaveCount(subjects.length+1);
+    for(const [label,total] of subjects){
+      const button=page.getByRole('button',{name:label,exact:true});
+      await button.focus(); await page.keyboard.press('Enter');
+      await expect(button).toHaveAttribute('aria-pressed','true');
+      await expect(page.locator('.publication-card:visible')).toHaveCount(total);
+      await expect(page.getByRole('status')).toHaveText(`${total} ${total===1?'paper':'papers'}`);
+    }
+    await page.getByRole('button',{name:'All',exact:true}).click();
+    await expect(page.locator('.publication-card:visible')).toHaveCount(count);
+    for(const width of [1440,390,320]){
+      await page.setViewportSize({width,height:900});
+      await page.evaluate(()=>document.fonts.ready);
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+      for(const img of await page.locator('.poster-stage img').all()){
+        await img.scrollIntoViewIfNeeded();
+        await expect.poll(()=>img.evaluate(el=>el.complete&&el.naturalWidth>0)).toBeTruthy();
+      }
+      await page.evaluate(()=>scrollTo(0,0));
+      await page.screenshot({path:`test-results/${slug}-${width}.png`,fullPage:false});
+    }
+    await page.getByRole('link',{name:'Mathscapes home',exact:true}).click();
+    await expect(page.locator('.work-card')).toHaveCount(9);
+  }
 });

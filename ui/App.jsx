@@ -13,12 +13,13 @@ export function researchText(data) {
     '', '## People', ...data.people.flatMap(p=>['',p.name,p.affiliation,`${data.site.url}${p.url}`]), ''
   ].join('\n');
 }
-function Portfolio({pieces,publications,ready}) {
+function Portfolio({pieces,publications,topics,ready}) {
   const [filter,setFilter]=useState('all');
   const items=[...pieces,...publications.map(p=>({...p,group:'research'}))];
-  const visible=filter==='all'?items:items.filter(p=>p.group===filter);
+  const categories=topics.filter(topic=>items.some(p=>p.topics.includes(topic.id)));
+  const visible=filter==='all'?items:items.filter(p=>p.topics.includes(filter));
   return <section id="work" className="work-section">
-    <div className="section-top"><h2>Work</h2><div className="filters" role="group" aria-label="Filter work">{[['all','All'],['tooling','ML'],['figures','Figures'],['research','Research']].map(([value,label])=><button key={value} type="button" aria-pressed={filter===value} disabled={!ready} onClick={()=>setFilter(value)}>{label}</button>)}</div></div>
+    <div className="section-top"><h2>Work</h2><div className="filters" role="group" aria-label="Filter work by subject">{[{id:'all',label:'All'},...categories].map(({id,label})=><button key={id} type="button" aria-pressed={filter===id} disabled={!ready} onClick={()=>setFilter(id)}>{label}</button>)}</div></div>
     <div className="portfolio-grid">{visible.map((p,i)=>p.group==='research'?<article className="work-card publication-card" key={p.url}>
       {p.preview&&<a className="poster-stage portrait" href={p.preview.pdf} aria-label={`Open ${p.title} (${p.preview.version || 'PDF'})`}><img src={`/assets/publications/${p.preview.image}`} alt="" width={p.preview.width} height={p.preview.height} loading="lazy"/><span className="preview-action">View PDF</span></a>}
       <div className="publication-caption"><h3><a href={p.url}>{p.title}</a></h3><p><span className="publication-year">{p.year}</span>{p.preview?.version&&<> · {p.preview.version}</>}</p></div>
@@ -34,7 +35,8 @@ export default function App({data}) {
   return <div className="site-shell">
     <a className="skip-link" href="#main-content">Skip to content</a>
     <header className="home-header"><a className="brand" href="/" aria-label="Mathscapes home"><img src="/assets/ms_light.png" alt="Mathscapes" width="267" height="48"/></a><h1>Research, software and technical communication.</h1></header>
-    <main id="main-content" tabIndex="-1"><Portfolio pieces={data.portfolio} publications={data.publications} ready={ready}/><noscript><p className="no-script">Browse the <a href="/research.txt">text research index</a>. Enable JavaScript to filter work.</p></noscript></main>
+    <main id="main-content" tabIndex="-1"><Portfolio pieces={data.portfolio} publications={data.publications} topics={data.topics} ready={ready}/><noscript><p className="no-script">Browse the <a href="/research.txt">text research index</a>. Enable JavaScript to filter work.</p></noscript></main>
 
+    <footer className="profile-directory" aria-label="People">{data.people.map(p=><a href={p.url} key={p.url}>{p.name}</a>)}</footer>
   </div>;
 }

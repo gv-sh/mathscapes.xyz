@@ -176,3 +176,24 @@ footer { border: 0; padding: 35px 0 24px; }
   .brand img { width: 108px; }
   .poster-stage { height: 370px; }
 }
+
+.profile-directory { display: flex; flex-wrap: wrap; gap: 12px 28px; padding: 16px 0 32px; color: var(--muted); }
+.profile-directory a:hover, .profile-external-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.profile-directory [aria-current=page] { color: #282629; }
+.profile-intro { max-width: 760px; margin-bottom: 32px; }
+.profile-affiliation, .publication-count { color: var(--muted); }
+.profile-bio { margin-top: 12px; }
+.profile-external-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; }
+.citation-stage { flex-direction: column; align-items: flex-start; justify-content: center; gap: 20px; padding: clamp(24px, 3vw, 48px); }
+.citation-stage h3 { font-size: var(--text-size); line-height: var(--line-height); font-weight: 500; }
+.citation-label, .citation-venue { color: var(--muted); }
+.publication-metadata p { margin-top: 0; }
+.publication-metadata strong { font-weight: 500; }
+.profile-shell .publication-caption + .publication-metadata { padding-top: 7px; }
+
+.section-top { gap: 20px; align-items: flex-start; }
+.section-top h2 { flex-shrink: 0; padding-top: 8px; }
+.filters { flex-wrap: wrap; justify-content: flex-end; }
+.work-card[hidden] { display: none; }
+[data-publication-count] { margin-top: 24px; }
+@media(max-width:700px) { .filters { justify-content: flex-start; } }

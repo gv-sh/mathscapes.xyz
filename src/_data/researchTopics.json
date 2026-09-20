@@ -1,0 +1,99 @@
+{
+  "topics": [
+    {
+      "id": "machine-learning",
+      "label": "Machine learning"
+    },
+    {
+      "id": "streaming-statistics",
+      "label": "Streaming statistics"
+    },
+    {
+      "id": "materials-mechanics",
+      "label": "Materials & mechanics"
+    },
+    {
+      "id": "interaction-design",
+      "label": "Interaction design"
+    },
+    {
+      "id": "transport-sustainability",
+      "label": "Transport & sustainability"
+    }
+  ],
+  "papers": {
+    "https://doi.org/10.1088/3049-4761/ae7df3": [
+      "machine-learning"
+    ],
+    "https://doi.org/10.1142/S0218348X26400633": [
+      "transport-sustainability"
+    ],
+    "https://doi.org/10.5281/zenodo.18610143": [
+      "streaming-statistics"
+    ],
+    "https://doi.org/10.1177/20414196241281069": [
+      "machine-learning",
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1145/3294109.3300986": [
+      "interaction-design"
+    ],
+    "https://doi.org/10.1007/978-3-319-68059-0_43": [
+      "interaction-design"
+    ],
+    "https://doi.org/10.1145/2676702.2676719": [
+      "interaction-design"
+    ],
+    "https://doi.org/10.1016/j.mechmat.2026.105674": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1016/j.ijrmhm.2025.107493": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1088/1361-651x/ae6c3e": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1088/1361-651x/ae33d6": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1016/j.compstruct.2025.119180": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1016/j.engfailanal.2024.108408": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1016/j.matpr.2023.05.124": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1080/13588265.2020.1866859": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1016/j.compstruct.2021.114289": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1016/j.matlet.2020.129214": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1016/j.compstruct.2021.113563": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1016/j.compstruct.2020.112985": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1080/15376494.2019.1655688": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1007/s40870-020-00249-5": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1007/978-981-32-9931-3_43": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1007/978-981-13-8297-0_38": [
+      "materials-mechanics"
+    ],
+    "https://doi.org/10.1016/j.dt.2017.06.004": [
+      "materials-mechanics"
+    ]
+  }
+}

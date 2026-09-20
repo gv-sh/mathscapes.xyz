@@ -1,57 +1,60 @@
 ---
 layout: base.njk
+modernHome: true
 ---
-
-<div class="person" style="--accent: {{ accent or '#0000ee' }}">
-
-  <div class="person-heading">
-    <h1 class="person-name">{{ name }}</h1>
-    {% if affiliation %}<span class="affiliation">{{ affiliation | safe }}</span>{% endif %}
-  </div>
-
-  {% if bio %}<p class="person-bio">{{ bio | safe }}</p>{% endif %}
-
-  {% if links %}
-  <div class="cta-wrapper profile-links">
-    {% for link in links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
-  </div>
-  {% endif %}
-
-  {% if tags %}
-  <div class="tag-row" aria-label="Areas of expertise">
-    {% for t in tags %}<span class="tag">{{ t }}</span>{% endfor %}
-  </div>
-  {% endif %}
-
-  <div class="pub-summary" aria-label="Publication summary">
-    <span>{{ publications | length }} publications</span>
-    <span>{{ (publications | last).year }}&ndash;{{ (publications | first).year }} active</span>
-  </div>
-
-  <h2>Publications</h2>
-
-  <div class="pub-timeline">
-    {% for group in publications | groupByYear %}
-    <div class="pub-year-group">
-      <div class="pub-year-label">{{ group.year }}</div>
-      <div class="pub-year-items">
-        {% for pub in group.items %}
-        <div class="publication">
-
-          <div class="pub-info">
-            {% if pub.url %}<a class="pub-title" href="{{ pub.url }}">{{ pub.title }}</a>{% else %}<span class="pub-title">{{ pub.title }}</span>{% endif %}
-            <div class="pub-details">
-              <div class="pub-venue">{{ pub.venue }}</div>
-              <div class="pub-authors" aria-label="Authors">{{ pub.authors | authorBadges | safe }}</div>
-            </div>
-          </div>
+<div class="site-shell profile-shell">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="home-header">
+    <a class="brand" href="/" aria-label="Mathscapes home"><img src="/assets/ms_light.png" alt="Mathscapes" width="267" height="48"></a>
+    <h1>{{ name }}</h1>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <div class="profile-intro">
+      <p class="profile-affiliation">{{ affiliation | safe }}</p>
+      {% if bio %}<p class="profile-bio">{{ bio | safe }}</p>{% endif %}
+      <div class="profile-external-links">{% for link in links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}</div>
+    </div>
+    <section class="work-section" aria-labelledby="publications-title" data-publication-grid>
+      <div class="section-top"><h2 id="publications-title">Publications</h2>
+        <div class="filters" role="group" aria-label="Filter publications by subject">
+          <button type="button" data-topic="all" aria-pressed="true" disabled>All</button>
+          {% for topic in publications | publicationTopics(researchTopics) %}<button type="button" data-topic="{{ topic.id }}" aria-pressed="false" disabled>{{ topic.label }}</button>{% endfor %}
         </div>
+      </div>
+      <div class="portfolio-grid">
+        {% for pub in publications %}
+        {% set preview = publicationPreviews[pub.url] %}
+        <article class="work-card publication-card" data-topics="{{ researchTopics.papers[pub.url] | join(' ') }}">
+          {% if preview %}
+          <a class="poster-stage portrait" href="{{ preview.pdf or preview.web }}" aria-label="Open {{ pub.title }} ({% if preview.pdf %}PDF{% else %}webpage{% endif %})">
+            <img src="/assets/publications/{{ preview.image }}" alt="" width="{{ preview.width }}" height="{{ preview.height }}" loading="lazy">
+            <span class="preview-action">{% if preview.pdf %}View PDF{% else %}View webpage{% endif %}</span>
+          </a>
+          <div class="publication-caption"><h3><a href="{{ pub.url }}">{{ pub.title }}</a></h3></div>
+          {% else %}
+          <a class="poster-stage citation-stage" href="{{ pub.url }}" aria-label="Read {{ pub.title }}">
+            <span class="citation-label">Publication · {{ pub.year }}</span>
+            <h3>{{ pub.title }}</h3>
+            <span class="citation-venue">{{ pub.venue }}</span>
+            <span class="preview-action">View publication</span>
+          </a>
+          {% endif %}
+          <div class="publication-caption publication-metadata">
+            <p>{{ pub.year }}{% if preview.web %} · Webpage preview{% endif %}{% if preview.version %} · {{ preview.version }}{% endif %}</p>
+            <p>{{ pub.authors | safe }}</p>
+            {% if preview %}<p>{{ pub.venue }}</p>{% endif %}
+          </div>
+        </article>
         {% endfor %}
       </div>
-    </div>
-    {% endfor %}
-  </div>
-
-  {{ content | safe }}
-
+      <p class="publication-count" role="status" data-publication-count>{{ publications | length }} papers</p>
+    </section>
+    {{ content | safe }}
+  </main>
+  <footer class="profile-directory" aria-label="People">
+    <a href="/">All Mathscapes work</a>
+    {% for person in collections.people %}<a href="{{ person.url }}"{% if person.url == page.url %} aria-current="page"{% endif %}>{{ person.data.name }}</a>{% endfor %}
+  </footer>
 </div>
+
+<script src="/assets/profile-filters.js?v={{ uiVersion }}" defer></script>

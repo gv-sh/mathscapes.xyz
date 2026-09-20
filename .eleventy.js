@@ -1,6 +1,10 @@
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addFilter("publicationTopics", function(publications, taxonomy) {
+    const present = new Set((publications || []).flatMap(p => taxonomy.papers[p.url] || []));
+    return taxonomy.topics.filter(topic => present.has(topic.id));
+  });
   eleventyConfig.addGlobalData("uiVersion", () => JSON.parse(require("node:fs").readFileSync(".cache/ui-version.json", "utf8")).version);
   eleventyConfig.addFilter("authorBadges", require("./lib/author-badges"));
 
